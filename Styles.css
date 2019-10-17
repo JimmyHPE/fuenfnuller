@@ -7,15 +7,15 @@ html, body{
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 187pt 1fr;
-  grid-template-rows: min-content min-content;
+  grid-template-columns: 10em 1fr;
+  grid-template-rows: 7.5em min-content;
   grid-template-areas:
-    "nav-bar nav-bar"
+    "header header"
     "sidebar content"
 }
 
-.nav-bar-main{
-  grid-area: nav-bar;
+.header-main{
+  grid-area: header;
   background-color: #1a1819;
   color: white;
 }
@@ -31,8 +31,12 @@ html, body{
   background-color: white;
 }
 
-.logo{
-  margin-left: 0.5em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+.logofünfnull{
+  margin-left: 1em;
+  margin-top: 1em;
+  position: absolute;
+}
+
+.originalist {
+  margin-left: 7em;
 }
