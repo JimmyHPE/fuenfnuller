@@ -32,12 +32,18 @@ html, body{
 }
 
 .logofünfnull{
-  margin-left: 1em;
+  margin-left: 0.5em;
   margin-top: 1em;
   position: absolute;
 }
 
 .originalist {
-  margin-left: 7em;
-  background-color: yellow;
+  margin-left: 10em;
+  background-color:white;
+  transition: 1.0s;
 }
+
+.originalist:hover {
+  background-color: #ffc814
+}
+
