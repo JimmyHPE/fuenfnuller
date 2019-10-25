@@ -1,0 +1,91 @@
+#hintergrund {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0.9;
+}
+
+@keyframes animate {
+    0%
+    {
+        background-position: -500%;
+
+    }
+    50%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 500%;
+    }
+
+}
+
+#z8{
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ffb90038, #ffb90038, #ffb90038);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 8s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255,255,255,0.5);
+}
+#z6{
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ffb90038, #ffb90038, #ffb90038);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 6s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255,255,255,0.5);
+}
+#z4{
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ffb90038, #ffb90038, #ffb90038);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 4s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255,255,255,0.5);
+}
+#z10{
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ffb90038, #ffb90038, #ffb90038);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 10s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255,255,255,0.5);
+}
+#z7{
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ffb90038, #ffb90038, #ffb90038);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 7s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255,255,255,0.5);
+}
