@@ -7,23 +7,21 @@ html, body{
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 10em 1fr;
-  grid-template-rows: 7.5em min-content;
+  grid-template-rows: 5em 1fr;
   grid-template-areas:
-    "header header"
-    "sidebar content"
+    "header"
+    "content"
 }
 
-.header-main{
+.header{
   grid-area: header;
   background-color: #1a1819;
   color: white;
+  transition: 1s;
 }
 
-.sidebar-main{
-  grid-area: sidebar;
-  background-color: #000000;
-  color: white
+.header:hover {
+  filter: invert(1);
 }
 
 .content-main{
@@ -31,3 +29,12 @@ html, body{
   background-color: white;
 } 
 
+.logo {
+  height: 5em;
+  transition: 3s;
+}
+
+.original {
+    width: 19em;
+    margin-bottom: 0.7em;
+}
