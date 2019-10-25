@@ -12,11 +12,9 @@ html, body{
     "header"
     "content"
 }
-
-.header{
+.header {
   grid-area: header;
   background-color: #1a1819;
-  color: white;
   transition: 1s;
 }
 
@@ -37,4 +35,20 @@ html, body{
 .original {
     width: 19em;
     margin-bottom: 0.7em;
+}
+
+.suche {
+  width: 16em;
+  height: 2.5em;
+	border: 5px solid rgb(255, 230, 3);
+	border-radius: 0.8em;
+  font-size: 1em;
+  padding-left: 0.5em;
+  float: right;
+}
+
+@media (max-width:670px) {
+  .original {
+    display: none;
+  }
 }
