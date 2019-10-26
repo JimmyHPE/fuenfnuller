@@ -1,6 +1,6 @@
 
 function befuelleZeile(){
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 95; i++) {
       let test = Math.floor((Math.random() * 2));
 
       if (test == 1) {
