@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 html, body{
   padding: 0;
   margin: 0;
@@ -44,18 +43,13 @@ html, body{
 .suche {
   width: 18em;
   height: 3em;
-<<<<<<< HEAD
-	border: 3px solid rgb(255, 230, 3);
-	border-radius: 0.8em;
-=======
-	border: 4px solid rgb(255, 230, 3);
->>>>>>> 4b4c2db8e5e158df1461d5227ebe7f3be33b15d1
   font-size: 1em;
   padding-left: 0.5em;
   float: right;
   margin-top: 1em;
   margin-right: 1em;
   margin-left: 1em;
+  border: 4px solid rgb(255, 230, 3);
 }
 
 
@@ -76,77 +70,3 @@ html, body{
     display: none;
   }
 }
-=======
-html, body{
-  padding: 0;
-  margin: 0;
-}
-
-.grid-bereiche{
-  width: 100%;
-  min-width: 290px;
-  height: 100%;
-  display: grid;
-  grid-template-rows: 5em 1fr;
-  grid-template-areas:
-    "header"
-    "content"
-}
-.header {
-  width: 100%;
-  grid-area: header;
-  background-color: #1a1819;
-}
-
-.content-main{
-  grid-area: content;
-  background-color: white;
-}
-
-.logo {
-  height: 5em;
-  transition: 3s;
-}
-
-.original {
-    width: 19em;
-    margin-bottom: 0.7em;
-}
-
-.list {
-  width: 6.5em;
-  margin-bottom: 0.7em;
-  margin-left: 2em;
-}
-
-.suche {
-  width: 18em;
-  height: 3em;
-	border: 4px solid rgb(255, 230, 3);
-  font-size: 1em;
-  padding-left: 0.5em;
-  float: right;
-  margin-top: 1em;
-  margin-right: 1em;
-  margin-left: 1em;
-}
-
-
-@media (max-width:725px){
-  .suche {
-    width: 100%;
-    position: center;
-    float: none;
-  }
-}
-@media (max-width:405px){
-  .original {
-    display: none;
-  }
-}
-@media (min-width:405px){
-  .list {
-    display: none;
-  }
-}
->>>>>>> 4344fa034c6384b6054817b48343df63f6fd53ba
