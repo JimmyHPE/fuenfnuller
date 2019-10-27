@@ -91,17 +91,17 @@
      </div>
      <!-- Hier kommt die Form rein, die in der Suchleiste angegeben wird -->
 
-     <ul class="listeUl">
+     <ul class="listeUl" id="!!!LISTID!!!">
        <!--Listenname-->
-       <h1 id="listName"></h1>
+       <h1 id="!!!LISTNAME!!!"></h1>
        <!--Items-->
-       <form id="" action="#" method="post">
+       <form action="#" method="post">
          <fieldset>
            <!--Ein Item-->
-           <li class="item" id="<listId>">
-             <input type="button" name="" value="Löschen" onclick="removeListenelement()">
-              <input type="checkbox" value="<bought>" onclick="checkListenelement()">
-                <input type="text" name="" value="<listItemName>">
+           <li class="item" id="!!!ITEMID!!!">
+             <input type="button" name="" value="Löschen" onclick="removeListenelement(!!!LISTID!!!, !!!ITEMID!!!)">
+              <input type="checkbox" value="!!!BOUGHT!!!" onclick="checkListenelement(!!!LISTID!!!, !!!ITEMID!!!)">
+                <input type="text" name="" value="!!!LISTITEMNAME!!!">
                 </input>
               </input>
              </input>
@@ -110,9 +110,9 @@
          </fieldset>
        </form>
        <!--Item hinzufügen-->
-       <form id="" action="#" method="post">
+       <form action="#" method="post">
          <input type="text" name="Element hinzufügen" placeholder="Item hinzufügen" id="addElement"></input>
-         <input type="submit" name="hinzufügen" value="Hinzufügen" onclick="addListenelement()">
+         <input type="button" name="submit" value="Hinzufügen" onclick="addListenelement('!!!LISTID!!!')">
        </form>
 
      </ul>
