@@ -54,6 +54,20 @@ function removeListenelement(listId, itemId){
   //Neben jedem Listenelement ist ein Mülltonnen-icon
   //Es löscht das List-Item
   //und getted die aktualisierte Liste
+  var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId.toString() + "/items/" + itemId.toString();
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("DELETE", url, true);
+  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.onreadystatechange = function() {//Call a function when the state changes.
+      if(xhttp.readyState == 4 && xhttp.status == 200) {
+          console.log(xhttp.responseText);
+
+          //liste neu builden
+        }
+      };
+
+  xhttp.send();
 }
 
 
