@@ -85,9 +85,32 @@ function removeListenelement(listId, itemId){
 }
 
 
-function checkListenelement(listId, itemId){
+function checkListenelement(listId, itemId, checkboxId){
   //Diese Funktion wird durch das Abhaken einer Liste ausgelöst
+  var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId.toString() + "/items/" + itemId.toString();
+  var status;
+  if (document.getElementById(checkboxId).checked == true){
+    status =  true;
+  }
+  else {
+    status =  false;
+  }
+  var jsonObject = {
+    "bought" : status
+  }
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("PUT", url, true);
+  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.onreadystatechange = function() {//Call a function when the state changes.
+      if(xhttp.readyState == 4 && xhttp.status == 200) {
+          console.log(xhttp.responseText);
 
+          //liste neu builden
+        }
+      };
+
+  xhttp.send(JSON.stringify(jsonObject));
   //Die Liste Inhalte der Liste werden zu einem JSON String zusammengebaut
 
   //POST Funktion
