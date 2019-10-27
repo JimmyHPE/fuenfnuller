@@ -9,9 +9,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="content.css">
     <script type="text/javascript" src="background.js"></script>
+<<<<<<< HEAD
 
 
 
+=======
+    <script type="text/javascript" src="requests.js"></script>
+>>>>>>> d96ebfd8d07d2add488f91278e83f67a82eb7b5f
 </head>
 <body class="grid-bereiche">
    <div class="header">
@@ -25,8 +29,17 @@
           <a href="#">Liste 3</a>           
         </div>
         <img class="list" src="list.jpg">
+<<<<<<< HEAD
         </div>
         <input class="suche" type="search" id="suche" placeholder=" List ID...">
+=======
+
+        <!-- Suchleiste, verbunden mit request.js-->
+        <form class="suchfeld" action="#" method="post">
+          <input class="suche" type="text" id="suche" placeholder=" List ID...">
+          <input type="button" name="submit" value="Suchen" onclick="getListe()">
+        </form>
+>>>>>>> d96ebfd8d07d2add488f91278e83f67a82eb7b5f
    </div>
    <div class="content">
      <div id="hintergrund">
@@ -94,6 +107,33 @@
        <p id="z4"><script>befuelleZeile();</script></p>
        <p id="z6"><script>befuelleZeile();</script></p>
      </div>
+     <!-- Hier kommt die Form rein, die in der Suchleiste angegeben wird -->
+
+     <ul class="listeUl" id="!!!LISTID!!!">
+       <!--Listenname-->
+       <h1 id="!!!LISTNAME!!!"></h1>
+       <!--Items-->
+       <form action="#" method="post">
+         <fieldset>
+           <!--Ein Item-->
+           <li class="item" id="!!!ITEMID!!!">
+             <input type="button" name="" value="Löschen" onclick="removeListenelement('5db42c92b29b350017f9d4fc','5db5c3635b5b370017bc1bed')">
+              <input type="checkbox" value="!!!BOUGHT!!!" onclick="checkListenelement(!!!LISTID!!!, !!!ITEMID!!!)">
+                <input type="text" name="" value="!!!LISTITEMNAME!!!">
+                </input>
+              </input>
+             </input>
+           </li>
+           <!---->
+         </fieldset>
+       </form>
+       <!--Item hinzufügen-->
+       <form action="#" method="post">
+         <input type="text" name="Element hinzufügen" placeholder="Item hinzufügen" id="addElement"></input>
+         <input type="button" name="submit" value="Hinzufügen" onclick="addListenelement('!!!LISTID!!!')">
+       </form>
+
+     </ul>
    </div>
 </body>
 </html>
