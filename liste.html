@@ -16,7 +16,12 @@
         <img class="logo" src="logo5.0.jpg">
         <img class="original" src="original.jpg">
         <img class="list" src="list.jpg">
-        <input class="suche" type="search" id="suche" placeholder=" List ID...">
+
+        <!-- Suchleiste, verbunden mit request.js-->
+        <form class="suchfeld" action="#" method="post">
+          <input class="suche" type="text" id="suche" placeholder=" List ID...">
+          <input type="button" name="submit" value="Suchen" onclick="getListe()">
+        </form>
    </div>
    <div class="content">
      <div id="hintergrund">
@@ -84,7 +89,7 @@
        <p id="z4"><script>befuelleZeile();</script></p>
        <p id="z6"><script>befuelleZeile();</script></p>
      </div>
-     
+     <!-- Hier kommt die Liste rein, die in der Suchleiste angegeben wird -->
    </div>
 </body>
 </html>
