@@ -60,6 +60,17 @@ html, body{
   margin-left: 1em;
 }
 
+.listeUl{
+  border-radius: 2px;
+  background-color: grey;
+  color: black;
+  border: 1px dotted yellow;
+  list-style-type: none;
+}
+
+.item{
+
+}
 
 @media (max-width:725px){
   .suche {

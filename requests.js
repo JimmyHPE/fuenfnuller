@@ -13,10 +13,39 @@ function getListe(){
     if (this.readyState == 4 && this.status == 200) {
         //JSON Objekt parsen
         console.log(this.responseText);
-
-        //JSON Objekt in HTML element umwandeln (Die Liste)
+        var listeJson = JSON.parse(this.responseText);
+        var listeItems = JSON.parse(listeJson.items);
+        document.getElementById("name").innerHTML = listeJson.name;
+        buildListe(listeJson._id, listeJson.name, listeItems.name, )
+        //HTML ELEMENT BAUEN und Item values einfügen
     }
   };
 
   xhttp.send();
+}
+
+function addListenelement(){
+  //Diese Funktion wird von einem HTML submit Feld ausgelöst
+  //Sie liest ein Input Feld aus und fügt die Infos als HTML input Feld ein (in "value")
+  //das Input Feld zum Einfügen wird geleert
+}
+
+function removeListenelement(){
+  //Neben jedem Listenelement ist ein Mülltonnen-icon
+  //Es löscht das List-Item
+  //und getted die aktualisierte Liste
+}
+
+
+function checkListenelement(){
+  //Diese Funktion wird durch das Abhaken einer Liste ausgelöst
+
+  //Die Liste Inhalte der Liste werden zu einem JSON String zusammengebaut
+
+  //POST Funktion
+}
+
+function buildListe(){
+
+
 }
