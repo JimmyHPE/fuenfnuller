@@ -89,7 +89,33 @@
        <p id="z4"><script>befuelleZeile();</script></p>
        <p id="z6"><script>befuelleZeile();</script></p>
      </div>
-     <!-- Hier kommt die Liste rein, die in der Suchleiste angegeben wird -->
+     <!-- Hier kommt die Form rein, die in der Suchleiste angegeben wird -->
+
+     <ul class="listeUl">
+       <!--Listenname-->
+       <h1 id="listName"></h1>
+       <!--Items-->
+       <form id="" action="#" method="post">
+         <fieldset>
+           <!--Ein Item-->
+           <li class="item" id="<listId>">
+             <input type="button" name="" value="Löschen" onclick="removeListenelement()">
+              <input type="checkbox" value="<bought>" onclick="checkListenelement()">
+                <input type="text" name="" value="<listItemName>">
+                </input>
+              </input>
+             </input>
+           </li>
+           <!---->
+         </fieldset>
+       </form>
+       <!--Item hinzufügen-->
+       <form id="" action="#" method="post">
+         <input type="text" name="Element hinzufügen" placeholder="Item hinzufügen" id="addElement"></input>
+         <input type="submit" name="hinzufügen" value="Hinzufügen" onclick="addListenelement()">
+       </form>
+
+     </ul>
    </div>
 </body>
 </html>
