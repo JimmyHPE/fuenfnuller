@@ -15,20 +15,24 @@ function getListe(){
         //JSON Objekt parsen
         console.log(this.responseText);
         var listeJson = JSON.parse(this.responseText);
-
+        console.log(listeJson);
         //HTML ELEMENT BAUEN und Item values einfügen
+        buildListe(listeJson._id, listeJson.name, listeJson.items);
     }
   };
 
   xhttp.send();
+
 }
 
 function addListenelement(listId){
 
   //var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/5db42c8ab29b350017f9d4fb/items";
   var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId.toString() + "/items";
-
-  var neuesItem = document.getElementById('addElement').value.toString();
+  var eingabeString = listId + 'eid'
+  console.log(eingabeString);
+  console.log(document.getElementById(eingabeString));
+  var neuesItem = document.getElementById(eingabeString).value.toString();
   var neuesItemJson = {
     "name": neuesItem
   };
@@ -46,7 +50,7 @@ function addListenelement(listId){
       };
   xhttp.send(JSON.stringify(neuesItemJson));
   //das Input Feld zum Einfügen wird geleert
-  document.getElementById('addElement').value = '';
+  document.getElementById(eingabeString).value = '';
 
 }
 
@@ -104,8 +108,39 @@ function checkListenelement(listId, itemId, checkboxId){
 
 function buildListe(listId, listName, listItems){
 
-  for (let i = 0; i < listItems.length; i++){
+  var ulList = document.createElement('ul');
+  ulList.id = listId;
+  ulList.class = "listeUl";
+  console.log(ulList.id)
+  var stringsToInsert = [];
+    //HTML elemente für jedes einzelne Item Basteln
+    for (let i = 0; i < listItems.length; i++){
+      var itemBought = listItems[i].bought;
+      var itemId = listItems[i]._id;
+      var itemName = listItems[i].name;
+      var testIdCheckbox = ulList.id.toString() + i.toString();
+      stringsToInsert[i] =
+      '<li class="item" id="' + itemId + '"><input type="button" value="Löschen" onclick="removeListenelement('
+      + "'" + ulList.id + "','" + itemId + "'" + ')"><input type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+      + "'" + ulList.id + "'," + itemId + "'," + testIdCheckbox +')"><input type="text" value=' + '"' + itemName + '"'+ '></input></input></input></li>';
+      console.log(itemName);
+    }
+    //HTML element für Ganze Liste basteln
+    var elementeInUl = '<h1 id="' + listName + '"></h1><form action="#" method="post"><fieldset>';
+    var eingabeEid = ulList.id.toString() + 'eid';
+    for (let j = 0; j < stringsToInsert.length; j++){
+      //list Items rein ballern
+      elementeInUl += stringsToInsert[j];
 
-  }
+    }
+    //ende rein ballern
+    elementeInUl += '</fieldset></form><form action="#" method="post"><input type="text" name="Element hinzufügen" value="" placeholder="Item hinzufügen" id="' +
+    eingabeEid + '"></input><input type="button" name="submit" value="Hinzufügen" onclick="addListenelement(' + "'" + listId + "'" + ')"></form>';
+
+    //inner HTML von ul
+    console.log(elementeInUl);
+    ulList.innerHTML = elementeInUl;
+    //ul appenden
+    document.body.appendChild(ulList);
 
 }
