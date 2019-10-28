@@ -28,21 +28,25 @@ function getListe(){
         //JSON Objekt parsen
         console.log(this.responseText);
         var listeJson = JSON.parse(this.responseText);
-
+        console.log(listeJson);
         //HTML ELEMENT BAUEN und Item values einfügen
+        buildListe(listeJson._id, listeJson.name, listeJson.items);
     }
   };
 
 >>>>>>> 2d9edae39700581b2eb08e6ddeaa0305c0a37bc6
   xhttp.send();
+
 }
 
 function addListenelement(listId){
 
   //var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/5db42c8ab29b350017f9d4fb/items";
   var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId.toString() + "/items";
-
-  var neuesItem = document.getElementById('addElement').value.toString();
+  var eingabeString = listId + 'eid'
+  console.log(eingabeString);
+  console.log(document.getElementById(eingabeString));
+  var neuesItem = document.getElementById(eingabeString).value.toString();
   var neuesItemJson = {
     "name": neuesItem
   };
@@ -60,7 +64,7 @@ function addListenelement(listId){
       };
   xhttp.send(JSON.stringify(neuesItemJson));
   //das Input Feld zum Einfügen wird geleert
-  document.getElementById('addElement').value = '';
+  document.getElementById(eingabeString).value = '';
 
 }
 
@@ -85,9 +89,32 @@ function removeListenelement(listId, itemId){
 }
 
 
-function checkListenelement(listId, itemId){
+function checkListenelement(listId, itemId, checkboxId){
   //Diese Funktion wird durch das Abhaken einer Liste ausgelöst
+  var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId.toString() + "/items/" + itemId.toString();
+  var status;
+  if (document.getElementById(checkboxId).checked == true){
+    status =  true;
+  }
+  else {
+    status =  false;
+  }
+  var jsonObject = {
+    "bought" : status
+  }
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("PUT", url, true);
+  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.onreadystatechange = function() {//Call a function when the state changes.
+      if(xhttp.readyState == 4 && xhttp.status == 200) {
+          console.log(xhttp.responseText);
 
+          //liste neu builden
+        }
+      };
+
+  xhttp.send(JSON.stringify(jsonObject));
   //Die Liste Inhalte der Liste werden zu einem JSON String zusammengebaut
 
   //POST Funktion
@@ -95,8 +122,39 @@ function checkListenelement(listId, itemId){
 
 function buildListe(listId, listName, listItems){
 
-  for (let i = 0; i < listItems.length; i++){
+  var ulList = document.createElement('ul');
+  ulList.id = listId;
+  ulList.class = "listeUl";
+  console.log(ulList.id)
+  var stringsToInsert = [];
+    //HTML elemente für jedes einzelne Item Basteln
+    for (let i = 0; i < listItems.length; i++){
+      var itemBought = listItems[i].bought;
+      var itemId = listItems[i]._id;
+      var itemName = listItems[i].name;
+      var testIdCheckbox = ulList.id.toString() + i.toString();
+      stringsToInsert[i] =
+      '<li class="item" id="' + itemId + '"><input type="button" value="Löschen" onclick="removeListenelement('
+      + "'" + ulList.id + "','" + itemId + "'" + ')"><input type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+      + "'" + ulList.id + "'," + itemId + "'," + testIdCheckbox +')"><input type="text" value=' + '"' + itemName + '"'+ '></input></input></input></li>';
+      console.log(itemName);
+    }
+    //HTML element für Ganze Liste basteln
+    var elementeInUl = '<h1 id="' + listName + '"></h1><form action="#" method="post"><fieldset>';
+    var eingabeEid = ulList.id.toString() + 'eid';
+    for (let j = 0; j < stringsToInsert.length; j++){
+      //list Items rein ballern
+      elementeInUl += stringsToInsert[j];
 
-  }
+    }
+    //ende rein ballern
+    elementeInUl += '</fieldset></form><form action="#" method="post"><input type="text" name="Element hinzufügen" value="" placeholder="Item hinzufügen" id="' +
+    eingabeEid + '"></input><input type="button" name="submit" value="Hinzufügen" onclick="addListenelement(' + "'" + listId + "'" + ')"></form>';
+
+    //inner HTML von ul
+    console.log(elementeInUl);
+    ulList.innerHTML = elementeInUl;
+    //ul appenden
+    document.body.appendChild(ulList);
 
 }
