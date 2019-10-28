@@ -9,19 +9,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="content.css">
     <script type="text/javascript" src="background.js"></script>
-<<<<<<< HEAD
-
-
-
-=======
     <script type="text/javascript" src="requests.js"></script>
->>>>>>> d96ebfd8d07d2add488f91278e83f67a82eb7b5f
-</head>
+     
+  </head>
+
+
 <body class="grid-bereiche">
+  
    <div class="header">
         <img class="logo" src="logo5.0.jpg">
        
-       <div class="dropdown">
+      <div class="dropdown">
         <img class="original" src="original.jpg">
         <div class="dropdown-content">
           <a href="#">Liste 1</a>
@@ -29,19 +27,16 @@
           <a href="#">Liste 3</a>           
         </div>
         <img class="list" src="list.jpg">
-<<<<<<< HEAD
-        </div>
-        <input class="suche" type="search" id="suche" placeholder=" List ID...">
-=======
-
+      </div>
         <!-- Suchleiste, verbunden mit request.js-->
         <form class="suchfeld" action="#" method="post">
           <input class="suche" type="text" id="suche" placeholder=" List ID...">
-          <input type="button" name="submit" value="Suchen" onclick="getListe()">
+          <input class="suchenButton" type="button" name="submit" value="Suchen" onclick="getListe()">
         </form>
->>>>>>> d96ebfd8d07d2add488f91278e83f67a82eb7b5f
    </div>
    <div class="content">
+      <audio controls autoplay>
+          <source src="song.mp3" type="audio/mpeg"> </audio>
      <div id="hintergrund">
        <p id="z8"><script>befuelleZeile();</script></p>
        <p id="z7"><script>befuelleZeile();</script></p>
@@ -135,5 +130,6 @@
 
      </ul>
    </div>
+   
 </body>
 </html>
