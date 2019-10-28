@@ -30,7 +30,6 @@ function getListe(){
 }
 
 function addListenelement(listId){
-
   //var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/5db42c8ab29b350017f9d4fb/items";
   var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId.toString() + "/items";
   var eingabeString = listId + 'eid'
@@ -55,6 +54,8 @@ function addListenelement(listId){
   xhttp.send(JSON.stringify(neuesItemJson));
   //das Input Feld zum Einfügen wird geleert
   document.getElementById(eingabeString).value = '';
+
+  getListeAktuell(listId);
 
 }
 
@@ -112,7 +113,6 @@ function checkListenelement(listId, itemId, checkboxId){
 }
 
 function buildListe(listId, listName, listItems){
-
   var ulList = document.createElement('ul');
   ulList.id = listId;
   ulList.class = "listeUl";
