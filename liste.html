@@ -20,12 +20,10 @@
       <span>
         <img class="logo" src="logo5.0.jpg">
 
-        <div class="dropdown">
-          <img class="original" src="original.jpg">
-          <div class="dropdown-content">
-            <a href="#">Liste 1</a>
-            <a href="#">Liste 2</a>
-            <a href="#">Liste 3</a>
+        <div class="dropdown" id="dropdown">
+          <img class="original" id="originalBild" src="original.jpg" onmouseover="repeater=setInterval(getListenDropdown(), 100);" onmouseout="clearInterval(repeater);">
+          <div class="dropdown-content" id="dropdown-content">
+            <!--Hier stehen immer alle Listen drinnen-->
           </div>
           <img class="list" src="list.jpg">
         </div>

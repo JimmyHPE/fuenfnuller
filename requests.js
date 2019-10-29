@@ -1,8 +1,10 @@
+var baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/";
+
 function getListe(){
   //Eingabe aus der suchleiste entgegennehmen
   var slEingabe = document.getElementById('suche').value;
   //url aus id der suchleiste zusammenbauen
-  var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + slEingabe.toString();
+  var url = baseUrl + slEingabe.toString();
 
   if (document.getElementById(slEingabe) == null) {
   //http Request
@@ -40,7 +42,7 @@ function getListe(){
 
 function addListenelement(listId){
   //URL für Request zusammenbauen
-  var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId.toString() + "/items";
+  var url = baseUrl + listId.toString() + "/items";
 
   //ID von Eingabefeld nach Inhalt abfragen und in JSON packen
   var eingabeString = listId + 'eid';
@@ -72,7 +74,7 @@ function addListenelement(listId){
 function removeListenelement(listId, itemId){
 
   //URL bauen
-  var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId.toString() + "/items/" + itemId.toString();
+  var url = baseUrl + listId.toString() + "/items/" + itemId.toString();
 
   //DELETE request
   var xhttp = new XMLHttpRequest();
@@ -97,7 +99,7 @@ function checkListenelement(listId, itemId, checkboxId){
   //Diese Funktion wird durch das Abhaken einer Liste ausgelöst
 
   //URL zusammenbauen
-  var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId.toString() + "/items/" + itemId.toString();
+  var url = baseUrl + listId.toString() + "/items/" + itemId.toString();
 
   //Überprüfen, ob die Box abgehakt ist - Status entsprechend in JSON angeben
   var status;
@@ -194,7 +196,7 @@ function getListeAktuell(listId){
   element.parentNode.removeChild(element);
 
   //url aus id der suchleiste zusammenbauen
-  var url = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId.toString();
+  var url = baseUrl + listId.toString();
 
   //sichergehen, dass die Liste nicht aus unerklärlichen Gründen zwei Mal auf der Seite angezeigt wird
   if (document.getElementById(listId) == null) {
@@ -222,4 +224,52 @@ function getListeAktuell(listId){
   alert("die Liste ist schon offen!")
 }
 
+}
+
+var repeater;
+var repeaterTwo;
+
+function getListenDropdown(){
+  //triggered on hover
+  console.log("jimmy du hast es geschafft")
+  //GET alle Listen mit Name und id
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", baseUrl, true);
+  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+
+  xhttp.onreadystatechange = function() {
+
+    //wenn request erfolgreich ist
+    if (this.readyState == 4 && this.status == 200) {
+        //JSON Objekt parsen
+        console.log(this.responseText);
+        var listenInfos = JSON.parse(this.responseText);
+
+        //HTML ELEMENT BAUEN und Item values einfügen
+        buildListenDropdown(listenInfos);
+    }
+    };
+
+    xhttp.send();
+  //HTML a element erzeugen und appenden
+}
+
+function buildListenDropdown(listenInfos){
+
+  var kompletterString = '';
+  var einzufuegendesHtml = [];
+  //HTML element BAUEN
+  for (let i = 0; i < listenInfos.length; i++){
+    listenId = listenInfos[i]._id;
+    listenName = listenInfos[i].name;
+
+    einzufuegendesHtml[i] = '<a class="aListenName">'+ listenName +'</a>' + '<a class="aListenId">'+ listenId +'</a>';
+  }
+
+  for (var j = 0; j < einzufuegendesHtml.length; j++) {
+    kompletterString += einzufuegendesHtml[j];
+  }
+  //HTML element einfuegen
+  document.getElementById('dropdown-content').innerHTML = kompletterString;
 }
