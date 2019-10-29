@@ -257,14 +257,14 @@ function getListenDropdown(){
 
 function buildListenDropdown(listenInfos){
 
-  var kompletterString = '';
+  var kompletterString = '<a class="ddInfo">Click to Copy the ID</a>';
   var einzufuegendesHtml = [];
   //HTML element BAUEN
   for (let i = 0; i < listenInfos.length; i++){
     listenId = listenInfos[i]._id;
     listenName = listenInfos[i].name;
 
-    einzufuegendesHtml[i] = '<a class="aListenName">'+ listenName +'</a>' + '<a class="aListenId">'+ listenId +'</a>';
+    einzufuegendesHtml[i] = '<a class="aListenName" onclick="copyMessage('+ "'" + listenId + "'" +')">'+ listenName +'</a>';
   }
 
   for (var j = 0; j < einzufuegendesHtml.length; j++) {
@@ -273,3 +273,18 @@ function buildListenDropdown(listenInfos){
   //HTML element einfuegen
   document.getElementById('dropdown-content').innerHTML = kompletterString;
 }
+
+function copyMessage(listenId){
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = listenId;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+    document.getElementById('suche').value = selBox.value;
+  }
