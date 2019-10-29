@@ -3,6 +3,10 @@ html, body{
   margin: 0;
 }
 
+button{
+  cursor: pointer;
+}
+
 .grid-bereiche{
   width: 100%;
   min-width: 290px;
@@ -103,10 +107,23 @@ html, body{
 }
 
 .suchenButton {
-  display: inline;
-
+  border: none;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin: 0 1em;
+  background-color: transparent;
+  filter: invert(1);
 }
 
+.suchenButton:hover .searchIcon{
+  width: 40px;
+  height: 40px;
+}
+
+.suchenButton:focus{
+  outline: none;
+}
 
 .h1Liste {
   font-family: 'Arial';
