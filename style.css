@@ -105,13 +105,25 @@ html, body{
 
 }
 
-.listeUl{
-  border-radius: 2px;
-  background-color: grey;
-  color: black;
-  border: 1px dotted yellow;
-  list-style-type: none;
+
+.h1Liste {
+  font-family: 'Arial';
 }
+
+.fieldsetListe {
+  border: none;
+}
+
+.loeschenKnopfListe {
+  float: right;
+  margin-right: 33em;
+}
+
+.itemListe {
+  border: 6em black;
+  list-style: none;
+}
+
 
 .item{
 
@@ -150,9 +162,6 @@ html, body{
 }
 
 
-.listeUl {
-  margin-top: 15em;
-}
 
 audio {
   width: 300px;
