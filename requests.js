@@ -12,6 +12,8 @@ function getListe(){
   xhttp.setRequestHeader("Accept", "application/json");
 
   xhttp.onreadystatechange = function() {
+
+    //wenn request erfolgreich ist
     if (this.readyState == 4 && this.status == 200) {
         //JSON Objekt parsen
         console.log(this.responseText);
@@ -20,13 +22,20 @@ function getListe(){
         //HTML ELEMENT BAUEN und Item values einfügen
         buildListe(listeJson._id, listeJson.name, listeJson.items);
     }
-  };
 
-  xhttp.send();
-  }
+    //wenn die Liste bzw. url nicht existiert
+    else if (this.readyState == 4 && this.status == 400) {
+      alert("Die Liste die du suchst existiert nicht... :(")
+    }
+    };
+
+    xhttp.send();
+    }
+
   else {
-  alert("die Liste ist schon offen!")
-}
+  alert("die Liste ist schon offen!");
+  }
+
 }
 
 function addListenelement(listId){
@@ -144,19 +153,19 @@ function buildListe(listId, listName, listItems){
         stringsToInsert[i] =
         '<li class="itemListe" id="' + itemId + '"><input class="löschenKnopfListe" type="button" value="Löschen" onclick="removeListenelement('
         + "'" + ulList.id + "','" + itemId + "'" + ')"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
-        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ '></input></input></input></li>';
+        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input></input></input></li>';
         console.log(itemName);
       } else {
         stringsToInsert[i] =
         '<li class="itemListe" id="' + itemId + '"><input class="löschenKnopfListe" type="button" value="Löschen" onclick="removeListenelement('
         + "'" + ulList.id + "','" + itemId + "'" + ')"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
-        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ '></input></input></input></li>';
+        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input></input></input></li>';
       }
 
     }
 
     //HTML element für Ganze Liste basteln
-    var elementeInUl = '<h1 class="h1Liste" id="' + listId + '">' + listName + '</h1><form class="formEinsListe" action="#" method="post"><fieldset class="fieldsetListe">';
+    var elementeInUl = '<div class="listDiv"><h1 class="h1Liste" id="' + listId + '">' + listName + '</h1><form class="formEinsListe" action="#" method="post"><fieldset class="fieldsetListe">';
     var eingabeEid = ulList.id.toString() + 'eid';
 
     for (let j = 0; j < stringsToInsert.length; j++){
@@ -167,7 +176,7 @@ function buildListe(listId, listName, listItems){
     }
     //Endstück den gesamten String anhängen
     elementeInUl += '</fieldset></form><form class="formZweiListe" action="#" method="post"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" value="" placeholder="Item hinzufügen" id="' +
-    eingabeEid + '"></input><input class="hinzufuegenKnopfListe" type="button" name="submit" value="Hinzufügen" onclick="addListenelement(' + "'" + listId + "'" + ')"></form>';
+    eingabeEid + '"></input><input class="hinzufuegenKnopfListe" type="button" name="submit" value="Hinzufügen" onclick="addListenelement(' + "'" + listId + "'" + ')"></form></div>';
 
     //inner HTML von ul
     console.log(elementeInUl);

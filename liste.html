@@ -17,22 +17,26 @@
 <body class="grid-bereiche">
 
    <div class="header">
+      <span>
         <img class="logo" src="logo5.0.jpg">
 
-      <div class="dropdown">
-        <img class="original" src="original.jpg">
-        <div class="dropdown-content">
-          <a href="#">Liste 1</a>
-          <a href="#">Liste 2</a>
-          <a href="#">Liste 3</a>
+        <div class="dropdown">
+          <img class="original" src="original.jpg">
+          <div class="dropdown-content">
+            <a href="#">Liste 1</a>
+            <a href="#">Liste 2</a>
+            <a href="#">Liste 3</a>
+          </div>
+          <img class="list" src="list.jpg">
         </div>
-        <img class="list" src="list.jpg">
-      </div>
+      </span>
         <!-- Suchleiste, verbunden mit request.js-->
+      <span class="">
         <form class="suchfeld" action="#" method="post">
           <input class="suche" type="text" id="suche" placeholder=" List ID...">
           <input class="suchenButton" type="button" name="submit" value="Suchen" onclick="getListe()">
         </form>
+      </span>
    </div>
    <div class="content">
       <audio controls autoplay>
