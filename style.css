@@ -124,6 +124,11 @@ html, body{
   list-style: none;
 }
 
+div.listDiv {
+  border-style: solid;
+  background-color: white;
+  margin-left: none;
+}
 
 .item{
 
