@@ -23,11 +23,6 @@ button{
   background-color: #1a1819;
 }
 
-.content-main{
-  grid-area: content;
-  background-color: white;
-}
-
 .logo {
   height: 5em;
   transition: 3s;
@@ -46,7 +41,7 @@ button{
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #1a1819;
+  background-color: grey;
   width: 17.5em;
   border: 4px solid rgb(255, 230, 3);
   margin-left: 0.5em;
@@ -149,8 +144,12 @@ div.listDiv {
   margin-left: none;
 }
 
-.item{
+.dropdown:hover .aListenName {
+  display: block;
+}
 
+.dropdown:hover .aListenId {
+  display: none;
 }
 
 @media (max-width:725px){
