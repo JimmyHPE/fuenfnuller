@@ -1,8 +1,9 @@
 var baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/";
+var repeater;
 
 function getListe(){
   //Eingabe aus der suchleiste entgegennehmen
-  var slEingabe = document.getElementById('suche').value;
+  var slEingabe = document.getElementById('add').value;
   //url aus id der suchleiste zusammenbauen
   var url = baseUrl + slEingabe.toString();
 
@@ -191,9 +192,11 @@ function buildListe(listId, listName, listItems){
 
 function getListeAktuell(listId){
 
-  //Alte Liste Löschen
-  var element = document.getElementById(listId);
-  element.parentNode.removeChild(element);
+  if (document.getElementById(listId) != null) {
+    //Alte Liste Löschen
+    var element = document.getElementById(listId);
+    element.parentNode.removeChild(element);
+  }
 
   //url aus id der suchleiste zusammenbauen
   var url = baseUrl + listId.toString();
@@ -226,12 +229,8 @@ function getListeAktuell(listId){
 
 }
 
-var repeater;
-var repeaterTwo;
-
 function getListenDropdown(){
   //triggered on hover
-  console.log("jimmy du hast es geschafft")
   //GET alle Listen mit Name und id
 
   var xhttp = new XMLHttpRequest();
@@ -243,7 +242,6 @@ function getListenDropdown(){
     //wenn request erfolgreich ist
     if (this.readyState == 4 && this.status == 200) {
         //JSON Objekt parsen
-        console.log(this.responseText);
         var listenInfos = JSON.parse(this.responseText);
 
         //HTML ELEMENT BAUEN und Item values einfügen
@@ -264,7 +262,7 @@ function buildListenDropdown(listenInfos){
     listenId = listenInfos[i]._id;
     listenName = listenInfos[i].name;
 
-    einzufuegendesHtml[i] = '<a class="aListenName" onclick="copyMessage('+ "'" + listenId + "'" +')">'+ listenName +'</a>';
+    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenId + "'" +')">'+ listenName +'</a><button onclick="deleteListe('+"'"+listenId+"'"+')"><img class="loeschenBild" src="garbage.png" width="22px" height="22px"></img></button>';
   }
 
   for (var j = 0; j < einzufuegendesHtml.length; j++) {
@@ -274,17 +272,44 @@ function buildListenDropdown(listenInfos){
   document.getElementById('dropdown-content').innerHTML = kompletterString;
 }
 
-function copyMessage(listenId){
-    const selBox = document.createElement('textarea');
-    selBox.style.position = 'fixed';
-    selBox.style.left = '0';
-    selBox.style.top = '0';
-    selBox.style.opacity = '0';
-    selBox.value = listenId;
-    document.body.appendChild(selBox);
-    selBox.focus();
-    selBox.select();
-    document.execCommand('copy');
-    document.body.removeChild(selBox);
-    document.getElementById('suche').value = selBox.value;
+function deleteListe(listenId){
+
+  var url = baseUrl + listenId;
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("DELETE", url, true);
+  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  console.log(url);
+  xhttp.onreadystatechange = function() {
+
+    //wenn request erfolgreich ist
+    if (this.readyState == 4 && this.status == 200) {
+
+      //Alte Liste Löschen
+      var element = document.getElementById(listenId);
+      element.parentNode.removeChild(element);
+    }
   }
+  xhttp.send();
+}
+
+function createListe(){
+
+  var listName = document.getElementById('add').value.toString();
+
+  var jsonObject = {
+    "name" : listName
+  }
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", baseUrl, true);
+  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+
+  xhttp.onreadystatechange = function() {//Call a function when the state changes.
+      if(xhttp.readyState == 4 && xhttp.status == 200) {
+          alert("Liste erstellt");
+        }
+      };
+
+  xhttp.send(JSON.stringify(jsonObject));
+}
