@@ -1,46 +1,6 @@
 var baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/";
 var repeater;
 
-function getListe(){
-  //Eingabe aus der suchleiste entgegennehmen
-  var slEingabe = document.getElementById('add').value;
-  //url aus id der suchleiste zusammenbauen
-  var url = baseUrl + slEingabe.toString();
-
-  if (document.getElementById(slEingabe) == null) {
-  //http Request
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", url, true);
-  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
-  xhttp.setRequestHeader("Accept", "application/json");
-
-  xhttp.onreadystatechange = function() {
-
-    //wenn request erfolgreich ist
-    if (this.readyState == 4 && this.status == 200) {
-        //JSON Objekt parsen
-        console.log(this.responseText);
-        var listeJson = JSON.parse(this.responseText);
-        console.log(listeJson);
-        //HTML ELEMENT BAUEN und Item values einfügen
-        buildListe(listeJson._id, listeJson.name, listeJson.items);
-    }
-
-    //wenn die Liste bzw. url nicht existiert
-    else if (this.readyState == 4 && this.status == 400) {
-      alert("Die Liste die du suchst existiert nicht... :(")
-    }
-    };
-
-    xhttp.send();
-    }
-
-  else {
-  alert("die Liste ist schon offen!");
-  }
-
-}
-
 function addListenelement(listId){
   //URL für Request zusammenbauen
   var url = baseUrl + listId.toString() + "/items";
@@ -308,6 +268,7 @@ function createListe(){
   xhttp.onreadystatechange = function() {//Call a function when the state changes.
       if(xhttp.readyState == 4 && xhttp.status == 200) {
           alert("Liste erstellt");
+          document.getElementById('add').value = '';
         }
       };
 

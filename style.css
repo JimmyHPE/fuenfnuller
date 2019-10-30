@@ -105,10 +105,11 @@ button{
 .suchenButton {
   border: none;
   display: inline-block;
-  width: 52px;
-  height: 52px;
+  width: 64px;
+  height: 64px;
   margin: 0 1em;
   background-color: transparent;
+  filter: invert(1);
 }
 
 .suchenButton:hover .searchIcon{
