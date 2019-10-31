@@ -1,4 +1,5 @@
 html, body{
+  font-family: Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
   /* Scrollen verhindern*/
@@ -14,11 +15,6 @@ html, body{
                                   supported by Chrome, Opera and Firefox */
 }
 
-
-button{
-  cursor: pointer;
-}
-
 .grid-bereiche{
   width: 100%;
   min-width: 290px;
@@ -30,6 +26,9 @@ button{
     "content"
 }
 
+button{
+  cursor: pointer;
+}
 
 .header {
   width: 100%;
@@ -47,6 +46,12 @@ button{
     margin-bottom: 0.7em;
 }
 
+.list {
+  width: 6.5em;
+  margin-bottom: 0.7em;
+  margin-left: 2em;
+}
+
 .dropdown {
   display: inline-block;
   cursor: pointer;
@@ -55,10 +60,12 @@ button{
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: grey;
+  background-color: #1a1819;
   width: 17.5em;
-  border: 4px solid rgb(255, 230, 3);
+  border: 4px solid rgb(180, 180, 180);
+  border-style: double;
   margin-left: 0.5em;
+  border-radius: 1em;
 }
 
 .dropdown-content a {
@@ -70,56 +77,63 @@ button{
 }
 
 .dropdown-content a:hover {
-  color: black;
   cursor: pointer;
+  background-color: black;
+  border-radius: 1em;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.list {
-  width: 6.5em;
-  margin-bottom: 0.7em;
-  margin-left: 2em;
+.ListeLoeschenKnopf {
+  border: none;
+  display: inline-block;
+  background-color: transparent;
+  margin-bottom: 0em;
+  filter: invert(1);
+  margin-top: 0;
+}
+
+.ListeLoeschenKnopf:hover {
+  background-color: rgb(255, 0, 0);
+  filter: invert(0);
+  border-radius: 2em;
+}
+
+.ItemLoeschenKnopf {
+  border: none;
+  display: inline-block;
+  background-color: transparent;
+  margin-bottom: 0em;
+}
+
+.suchfeld{
+  float: right;
+  margin-top: 0.65em;
+  display: flex;
 }
 
 .suche {
   width: 18em;
   height: 3em;
   font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  float: right;
   border: 4px solid rgb(180, 180, 180);
   border-style: double;
   border-radius: 1em;
   display: inline;
 }
 
-
-.suchfeld{
-  height: 3em;
-  font-size: 1em;
-  padding-left: 0.5em;
-  float: right;
-  margin-top: 1em;
-  margin-right: 1em;
-  margin-left: 1em;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-
-}
-
 .suche:focus {
   outline: none;
   border: 5px solid rgb(228, 228, 131);
   border-style: double;
-
 }
 
-.suchenButton {
+.addListeButton {
   border: none;
   display: inline-block;
   width: 64px;
@@ -129,13 +143,16 @@ button{
   filter: invert(1);
 }
 
-.loeschenKnopfListe {
-  border: none;
-  display: inline-block;
-  background-color: transparent;
-  margin-bottom: 0em;
-
+.addListeButton:focus{
+  outline: none;
 }
+
+.addIcon:hover{
+  width: 45px;
+  height: 45px;
+}
+
+
 
 
 .addButton {
@@ -156,19 +173,13 @@ button{
   outline: none;
 }
 
-.suchenButton:hover .searchIcon{
-  width: 40px;
-  height: 40px;
-}
 
-.suchenButton:focus{
-  outline: none;
-}
 
 .h1Liste {
   font-family: 'Arial';
   font-size: 1.5em;
   text-align: center;
+  margin: 0;
 }
 
 .fieldsetListe {
@@ -190,9 +201,6 @@ button{
 
 }
 
-.loeschenKnopfListe {
-  display: inline-block;
-}
 
 .checkboxListe {
   display: inline-block;
@@ -221,26 +229,20 @@ div.listDiv {
   width: 100%;
   border-radius: 3em;
   background-color:rgba(255, 255, 255, 0.8);
-  padding: 2em;
-  padding-top: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   height: 100%;
+  text-align: center;
   
 }
 
 div.listDiv:hover {
-  border: 6px rgb(180, 180, 180);
-  border-style: double;
+  border: 5px rgb(180, 180, 180);
+  border-style: solid;
   border-radius: 3em;
 
 }
 
-.dropdown:hover .aListenName {
-  display: block;
-}
-
-.dropdown:hover .aListenId {
-  display: none;
-}
 
 @media (max-width:725px){
   .suche {
