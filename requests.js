@@ -1,5 +1,6 @@
-var baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/";
-var repeater;
+var baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/"; //Wird für jeden Request benötigt
+var repeater; //für das Dropdown Menü
+var listenInfos;
 
 function addListenelement(listId){
   //URL für Request zusammenbauen
@@ -151,6 +152,14 @@ function buildListe(listId, listName, listItems){
     console.log(elementeInUl);
     ulList.innerHTML = elementeInUl;
 
+    //Alte liste entfernen, wenn vorhanden
+    for(let i = 0; i<listenInfos.length; i++){
+      if (document.getElementById(listenInfos[i]) != null) {
+        var element = document.getElementById(listenInfos[i]);
+        element.parentNode.removeChild(element);
+      }
+    }
+
     //ul der Seite anhängen
     document.body.appendChild(ulList);
 
@@ -158,10 +167,11 @@ function buildListe(listId, listName, listItems){
 
 function getListeAktuell(listId){
 
-  if (document.getElementById(listId) != null) {
-    //Alte Liste Löschen
-    var element = document.getElementById(listId);
-    element.parentNode.removeChild(element);
+  for(let i = 0; i<listenInfos.length; i++){
+    if (document.getElementById(listenInfos[i]._id) != null) {
+      var element = document.getElementById(listenInfos[i]._id);
+      element.parentNode.removeChild(element);
+    }
   }
 
   //url aus id der suchleiste zusammenbauen
@@ -195,7 +205,7 @@ function getListeAktuell(listId){
 
 }
 
-function getListenDropdown(){
+function getListenInfos(){
   //triggered on hover
   //GET alle Listen mit Name und id
 
@@ -208,7 +218,7 @@ function getListenDropdown(){
     //wenn request erfolgreich ist
     if (this.readyState == 4 && this.status == 200) {
         //JSON Objekt parsen
-        var listenInfos = JSON.parse(this.responseText);
+        listenInfos = JSON.parse(this.responseText);
 
         //HTML ELEMENT BAUEN und Item values einfügen
         buildListenDropdown(listenInfos);
