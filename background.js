@@ -5,14 +5,14 @@ var gesamtHtml = '';
 var arrayAnZeilen = [];
 
 //Schleifenfurchläufe für die Zeile
-for(let j = 0; j < 70; j++){
+for(let j = 0; j < 140; j++){
 
   let zeileString = '';
   //Zufällige Id (für CSS) bestimmen. Es gibt 5 verschiedene Ids, welche die Geschwindigkeit der Animation bestimmen
   let zufallsId = Math.floor((Math.random()*5))
 
     //eine Zeile mit Emojis befüllen
-    for (let i = 0; i < 90; i++) {
+    for (let i = 0; i < 280; i++) {
 
       let test = Math.floor((Math.random() * 5));
       var emoji;
