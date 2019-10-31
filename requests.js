@@ -232,7 +232,7 @@ function buildListenDropdown(listenInfos){
     listenId = listenInfos[i]._id;
     listenName = listenInfos[i].name;
 
-    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenId + "'" +')">'+ listenName +'</a><button onclick="deleteListe('+"'"+listenId+"'"+')"><img class="loeschenBild" src="garbage.png" width="22px" height="22px"></img></button>';
+    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenId + "'" +')">'+ listenName +'</a><button class="loeschenKnopfListe" onclick="deleteListe('+"'"+listenId+"'"+')"><img class="loeschenBild" src="garbage.png" width="22px" height="22px"></img></button>';
   }
 
   for (var j = 0; j < einzufuegendesHtml.length; j++) {
