@@ -139,14 +139,8 @@ function buildListe(listId, listName, listItems){
 
     }
     //Endstück den gesamten String anhängen
-    elementeInUl += '</fieldset></form><form class="formZweiListe" action="#" method="post"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" value="" placeholder="Item hinzufügen" id="' +
+    elementeInUl += '</fieldset></form><form class="formZweiListe" action="#" method="post"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Item hinzufügen" id="' +
     eingabeEid + '"></input><button class="addButton" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="searchIcon" src="addIcon.png" width="38px" height="38px"></img></form></div>';
-
-    eingabeEid + '"></input><button class="addButton" type="button" name="submit" onclick=addListenelement(' + "'" + listId + "'" + ')"><img class="searchIcon" src="addIcon.png" width="38px" height="38px"></img></button></form></div>';
-
-
-
-    
 
     //inner HTML von ul
     console.log(elementeInUl);
