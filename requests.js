@@ -121,8 +121,8 @@ function buildListe(listId, listName, listItems){
         console.log(itemName);
       } else {
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><input class="loeschenKnopfListe" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+        '<li class="itemListe" id="' + itemId + '"><button class="loeschenKnopfListe" type="button" value="Löschen" onclick="removeListenelement('
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class "garbageIcon" src="garbage.png" width="30px" height="30px"></button><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
         + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input></input></input></li>';
       }
 
