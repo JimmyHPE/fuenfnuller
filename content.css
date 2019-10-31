@@ -7,14 +7,6 @@
   z-index: -1;
   overflow: hidden;
   opacity: 0.8;
-  /* Verhindern, dass der User den Hintergund markieren kann */
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Opera and Firefox */
 }
 
 @keyframes animate {
