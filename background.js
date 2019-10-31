@@ -1,24 +1,43 @@
+//div inner HTML setzen
+function getBackground(){
 
-function befuelleZeile(){
-  for (let i = 0; i < 95; i++) {
+var gesamtHtml = '';
+var arrayAnZeilen = [];
+
+//Schleifenfurchläufe für die Zeile
+for(let j = 0; j < 70; j++){
+
+  let zeileString = '';
+  //Zufällige Id (für CSS) bestimmen. Es gibt 5 verschiedene Ids, welche die Geschwindigkeit der Animation bestimmen
+  let zufallsId = Math.floor((Math.random()*5))
+
+    //eine Zeile mit Emojis befüllen
+    for (let i = 0; i < 90; i++) {
+
       let test = Math.floor((Math.random() * 5));
-
+      var emoji;
       if (test == 0) {
-        var emoji = "&#127867";
+        emoji = "&#127867";
       }
       else if (test == 1) {
-        var emoji = "&#127865";
+        emoji = "&#127865";
       }
       else if (test == 2) {
-        var emoji = "&#127864";
+        emoji = "&#127864";
       }
       else if (test == 3) {
-        var emoji = "&#127863";
+        emoji = "&#127863";
       }
       else {
-        var emoji = "&#127866";
+        emoji = "&#127866";
       }
-      document.writeln(emoji);
-  }
+      zeileString += emoji;
+    }
+
+    //String(HTML Code) aus Zeilen bauen
+    gesamtHtml += '<p id="z' + zufallsId + '">'+zeileString+'</p>';
 }
 
+//HTML in die Seite einbringen
+document.getElementById('hintergrund').innerHTML = gesamtHtml;
+}

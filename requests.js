@@ -1,5 +1,5 @@
-var baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/";
-var repeater;
+var baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/"; //Wird für jeden Request benötigt
+var repeater; //für das Dropdown Menü
 
 function addListenelement(listId){
   //URL für Request zusammenbauen
