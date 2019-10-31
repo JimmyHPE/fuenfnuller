@@ -115,14 +115,14 @@ function buildListe(listId, listName, listItems){
       //abfragen, ob das Item abgecheckt sein muss oder nicht
       if(itemBought == true){
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><input class="loeschenKnopfListe" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+        '<li class="itemListe" id="' + itemId + '"><button class="loeschenKnopfListe" type="button" value="Löschen" onclick="removeListenelement('
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class "garbageIcon" src="garbage.png" width="30px" height="30px"></button><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
         + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input></input></input></li>';
         console.log(itemName);
       } else {
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><input class="loeschenKnopfListe" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+        '<li class="itemListe" id="' + itemId + '"><button class="loeschenKnopfListe" type="button" value="Löschen" onclick="removeListenelement('
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class "garbageIcon" src="garbage.png" width="30px" height="30px"></button><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
         + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input></input></input></li>';
       }
 
@@ -140,7 +140,13 @@ function buildListe(listId, listName, listItems){
     }
     //Endstück den gesamten String anhängen
     elementeInUl += '</fieldset></form><form class="formZweiListe" action="#" method="post"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" value="" placeholder="Item hinzufügen" id="' +
-    eingabeEid + '"></input><input class="hinzufuegenKnopfListe" type="button" name="submit" value="Hinzufügen" onclick="addListenelement(' + "'" + listId + "'" + ')"></form></div>';
+    eingabeEid + '"></input><button class="addButton" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="searchIcon" src="addIcon.png" width="38px" height="38px"></img></form></div>';
+
+    eingabeEid + '"></input><button class="addButton" type="button" name="submit" onclick=addListenelement(' + "'" + listId + "'" + ')"><img class="searchIcon" src="addIcon.png" width="38px" height="38px"></img></button></form></div>';
+
+
+
+    
 
     //inner HTML von ul
     console.log(elementeInUl);

@@ -26,6 +26,13 @@ button{
     "header"
     "content"
 }
+
+.listgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row;
+}
+
 .header {
   width: 100%;
   grid-area: header;
@@ -120,6 +127,24 @@ button{
   filter: invert(1);
 }
 
+.addButton {
+  border: none;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 0 1em;
+  background-color: transparent;
+  margin-bottom: 0em;
+}
+
+.addButton:hover {
+  
+}
+
+.addButton:focus {
+  outline: none;
+}
+
 .suchenButton:hover .searchIcon{
   width: 40px;
   height: 40px;
@@ -137,6 +162,20 @@ button{
 
 .fieldsetListe {
   border: none;
+}
+
+.hinzufuegenTextfeldListe {
+   font-size: 1.2em; 
+   border: 1px solid #1a1819;
+   padding: 0.5em;
+   color: red;
+   font-family: inherit;
+   font-weight:300; 
+}
+
+
+.hinzufuegenTextfeldListe:focus {
+  outline: none;
 }
 
 .loeschenKnopfListe {
@@ -158,8 +197,13 @@ button{
   list-style: none;
 }
 
+ul {
+  display: inline;
+  width: 25em;
+}
+
 div.listDiv {
-  border: 5px grey;
+  border: 5px #1a1819;
   border-style: double;
   background-color: white;
   margin-left: none;
