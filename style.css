@@ -119,6 +119,16 @@ button{
   filter: invert(1);
 }
 
+.loeschenKnopfListe {
+  border: none;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 0 1em;
+  background-color: transparent;
+  margin-bottom: 0em;
+}
+
 .addButton {
   border: none;
   display: inline-block;
