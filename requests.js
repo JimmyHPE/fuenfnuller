@@ -139,8 +139,8 @@ function buildListe(listId, listName, listItems){
 
     }
     //Endstück den gesamten String anhängen
-    elementeInUl += '</fieldset></form><form class="formZweiListe" action="#" method="post"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Item hinzufügen" id="' +
-    eingabeEid + '"></input><button class="addButton" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon" src="addIcon.png" width="38px" height="38px"></img></form></div>';
+    elementeInUl += '</fieldset></form><form class="formZweiListe" id="formZweiListe"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Item hinzufügen" id="' +
+    eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon" src="addIcon.png" width="38px" height="38px"></img></button><script>document.getElementById("formZweiListe").addEventListener("submit", function(eve) {eve.preventDefault();}, false);var inputZwei = document.getElementById('+ "'" + eingabeEid + "'" +');inputZwei.addEventListener("keyup", function(eventZwei) {if (eventZwei.keyCode === 13)' + '{document.getElementById("addItemBtn").click();}});</script></form></div>';
 
     //inner HTML von ul
     console.log(elementeInUl);
@@ -225,7 +225,7 @@ function getListenInfos(){
 
 function buildListenDropdown(listenInfos){
 
-  var kompletterString = '<a class="ddInfo">Click to Copy the ID</a>';
+  var kompletterString = '';
   var einzufuegendesHtml = [];
   //HTML element BAUEN
   for (let i = 0; i < listenInfos.length; i++){
@@ -254,9 +254,11 @@ function deleteListe(listenId){
     //wenn request erfolgreich ist
     if (this.readyState == 4 && this.status == 200) {
 
-      //Alte Liste Löschen
-      var element = document.getElementById(listenId);
-      element.parentNode.removeChild(element);
+      //Alte Liste Löschen, wenn offen
+      if (document.getElementById(listenId) != null) {
+        var element = document.getElementById(listenId);
+        element.parentNode.removeChild(element);
+      }
     }
   }
   xhttp.send();
