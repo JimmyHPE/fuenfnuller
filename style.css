@@ -68,6 +68,10 @@ button{
   border-radius: 1em;
 }
 
+.dropdown-content:hover {
+  border: 4px solid rgb(180, 180, 180);
+}
+
 .dropdown-content a {
   color: white;
   padding: 12px 16px;
@@ -101,12 +105,6 @@ button{
   border-radius: 2em;
 }
 
-.ItemLoeschenKnopf {
-  border: none;
-  display: inline-block;
-  background-color: transparent;
-  margin-bottom: 0em;
-}
 
 .suchfeld{
   float: right;
@@ -154,6 +152,12 @@ button{
 
 
 
+.ItemLoeschenKnopf {
+  border: none;
+  display: inline-block;
+  background-color: transparent;
+  margin-bottom: 0em;
+}
 
 .addButton {
   border: none;
@@ -219,20 +223,24 @@ button{
 
 ul {
   display: inline;
-  width: 25em;
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
 }
 
 div.listDiv {
   border: 5px rgb(180, 180, 180);
   border-style: double;
   background-color: white;
-  width: 100%;
   border-radius: 3em;
   background-color:rgba(255, 255, 255, 0.8);
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   height: 100%;
   text-align: center;
+  position: center;
   
 }
 
@@ -242,6 +250,9 @@ div.listDiv:hover {
   border-radius: 3em;
 
 }
+
+
+@media () {}
 
 
 @media (max-width:725px){
