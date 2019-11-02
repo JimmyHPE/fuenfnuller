@@ -142,6 +142,9 @@ function buildListe(listId, listName, listItems){
     elementeInUl += '</fieldset></form><form class="formZweiListe" id="formZweiListe"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Item hinzufügen" id="' +
     eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon" src="addIcon.png" width="38px" height="38px"></img></button><script>document.getElementById("formZweiListe").addEventListener("submit", function(eve) {eve.preventDefault();}, false);var inputZwei = document.getElementById('+ "'" + eingabeEid + "'" +');inputZwei.addEventListener("keyup", function(eventZwei) {if (eventZwei.keyCode === 13)' + '{document.getElementById("addItemBtn").click();}});</script></form></div>';
 
+
+
+    
     //inner HTML von ul
     console.log(elementeInUl);
     ulList.innerHTML = elementeInUl;
