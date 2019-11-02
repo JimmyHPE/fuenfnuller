@@ -256,6 +256,11 @@ div.listDiv:hover {
   outline: none;
 }
 
+.garbageIcon {
+  width: 25px;
+  height: 25px;
+}
+
 .ItemLoeschenKnopf {
   border: none;
   display: inline-block;
