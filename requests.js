@@ -117,13 +117,13 @@ function buildListe(listId, listName, listItems){
         stringsToInsert[i] =
         '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
         + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="30px" height="30px"></button></li>';
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="25px" height="25px"></button></li>';
         console.log(itemName);
       } else {
         stringsToInsert[i] =
         '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
         + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="30px" height="30px"></button></li>';
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="25px" height="25px"></button></li>';
       }
 
     }

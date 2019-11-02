@@ -156,10 +156,11 @@ button{
 
 ul {
   display: inline;
-  width: 60%;
+  width: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0;
   padding-left: 0;
 }
 
@@ -233,32 +234,27 @@ div.listDiv:hover {
 }
 
 .addIcon2:hover {
-  background-color: rgb(0, 255, 0);
+  filter: invert(0.5);
 }
 
 .checkboxListe {
   display: inline-block;
   position: relative;
+  margin-bottom: 0;
 }
 
 
 .itemTextfeldListe {
   font-size: 1em;
-  border: 1px solid #1a1819;
+  border: none;
   padding: 0.3em;
-  border-radius: 0.5em;
-  width: 18em;
-  height: 1.5em;
   position: relative;
+  background-color: rgba(145, 143, 143, 0.473);
+  border-radius: 1em;
 }
 
 .itemTextfeldListe:focus {
   outline: none;
-}
-
-.garbageIcon {
-  width: 25px;
-  height: 25px;
 }
 
 .ItemLoeschenKnopf {
@@ -267,17 +263,26 @@ div.listDiv:hover {
   background-color: transparent;
   margin-bottom: 0em;
   position: relative;
+  height: 25px;
+}
 
+.garbageIcon {
+  width: 25px;
+  height: 25px;
+}
+
+.ItemLoeschenKnopf:hover {
+  filter: invert(1);
+}
+
+.garbageIcon:hover {
+  filter: drop-shadow(10px 10px 10px 10px red);
 }
 
 .ItemLoeschenKnopf:focus{
   outline: none;
 }
 
-.ItemLoeschenKnopf:hover{
-  background-color: red;
-  border-radius: 3em;
-}
 
 
 
