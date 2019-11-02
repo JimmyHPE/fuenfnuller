@@ -93,11 +93,10 @@ button{
 
 .ListeLoeschenKnopf {
   border: none;
-  display: inline-block;
+  display: inline;
   background-color: transparent;
-  margin-bottom: 0em;
   filter: invert(1);
-  margin-top: 0;
+  float: right;
 }
 
 .ListeLoeschenKnopf:hover {
@@ -151,9 +150,6 @@ button{
   height: 45px;
 }
 
-
-
-
 ul {
   display: inline;
   width: 50%;
@@ -174,7 +170,7 @@ div.listDiv {
   padding-bottom: 0.3em;
   height: 100%;
   text-align: center;
-  position: center;  
+  position: center;
 }
 
 div.listDiv:hover {
@@ -261,7 +257,7 @@ div.listDiv:hover {
   border: none;
   display: inline-block;
   background-color: transparent;
-  margin-bottom: 0em;
+  bottom: -0.5em;
   position: relative;
   height: 25px;
 }
