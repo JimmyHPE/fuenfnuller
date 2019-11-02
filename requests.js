@@ -117,13 +117,13 @@ function buildListe(listId, listName, listItems){
         stringsToInsert[i] =
         '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
         + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="garbage.png" width="30px" height="30px"></button></li>';
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="30px" height="30px"></button></li>';
         console.log(itemName);
       } else {
         stringsToInsert[i] =
         '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
         + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="garbage.png" width="30px" height="30px"></button></li>';
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="30px" height="30px"></button></li>';
       }
 
     }
@@ -235,7 +235,7 @@ function buildListenDropdown(listenInfos){
     listenId = listenInfos[i]._id;
     listenName = listenInfos[i].name;
 
-    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenId + "'" +')">'+ listenName +'</a><button class="ListeLoeschenKnopf" onclick="deleteListe('+"'"+listenId+"'"+')"><img class="loeschenBild" src="garbage.png" width="18px" height="18px"></img></button>';
+    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenId + "'" +')">'+ listenName +'</a><button class="ListeLoeschenKnopf" onclick="deleteListe('+"'"+listenId+"'"+')"><img class="loeschenBild" src="delete.png" width="18px" height="18px"></img></button>';
   }
 
   for (var j = 0; j < einzufuegendesHtml.length; j++) {
