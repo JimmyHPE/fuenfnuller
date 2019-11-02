@@ -115,15 +115,15 @@ function buildListe(listId, listName, listItems){
       //abfragen, ob das Item abgecheckt sein muss oder nicht
       if(itemBought == true){
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="garbage.png" width="30px" height="30px"></button><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
-        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input></input></input></li>';
+        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="garbage.png" width="30px" height="30px"></button></li>';
         console.log(itemName);
       } else {
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="garbage.png" width="30px" height="30px"></button><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
-        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input></input></input></li>';
+        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="garbage.png" width="30px" height="30px"></button></li>';
       }
 
     }
@@ -140,7 +140,7 @@ function buildListe(listId, listName, listItems){
     }
     //Endstück den gesamten String anhängen
     elementeInUl += '</fieldset></form><form class="formZweiListe" id="formZweiListe"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Item hinzufügen" id="' +
-    eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon" src="addIcon.png" width="38px" height="38px"></img></button><script>document.getElementById("formZweiListe").addEventListener("submit", function(eve) {eve.preventDefault();}, false);var inputZwei = document.getElementById('+ "'" + eingabeEid + "'" +');inputZwei.addEventListener("keyup", function(eventZwei) {if (eventZwei.keyCode === 13)' + '{document.getElementById("addItemBtn").click();}});</script></form></div>';
+    eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon2" src="addIcon.png" width="38px" height="38px"></img></button><script>document.getElementById("formZweiListe").addEventListener("submit", function(eve) {eve.preventDefault();}, false);var inputZwei = document.getElementById('+ "'" + eingabeEid + "'" +');inputZwei.addEventListener("keyup", function(eventZwei) {if (eventZwei.keyCode === 13)' + '{document.getElementById("addItemBtn").click();}});</script></form></div>';
 
 
 

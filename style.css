@@ -156,7 +156,7 @@ button{
 
 ul {
   display: inline;
-  width: 70%;
+  width: 60%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -164,24 +164,22 @@ ul {
 }
 
 div.listDiv {
-  border: 5px rgb(180, 180, 180);
+  border: 10px #1a1819;
   border-style: double;
   background-color: white;
   border-radius: 3em;
   background-color:rgba(255, 255, 255, 0.8);
   padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.3em;
   height: 100%;
   text-align: center;
-  position: center;
-  
+  position: center;  
 }
 
 div.listDiv:hover {
-  border: 5px rgb(180, 180, 180);
+  border: 10px #1a1819;
   border-style: solid;
   border-radius: 3em;
-
 }
 
 .h1Liste {
@@ -195,42 +193,76 @@ div.listDiv:hover {
   border: none;
 }
 
+.itemListe {
+  list-style: none;
+}
+
+.formZweiListe {
+  display: inline;
+}
+
 .hinzufuegenTextfeldListe {
    font-size: 1em;
    border: 1px solid #1a1819;
-   border-style: double;
    padding: 0.3em;
    border-radius: 0.5em;
+   width: 18em;
+   height: 1.5em;
+   position: relative;
 }
 
 .hinzufuegenTextfeldListe:focus {
   outline: none;
-  border: 1px solid rgb(228, 228, 131);
+  border: 1px solid rgb(180, 180, 180);
   border-style: double;
 }
 
 .addButton {
   border: none;
-  display: inline-block;
-  width: 64px;
-  height: 64px;
-  margin: 0 1em;
+  display: inline;
+  width: 36px;
+  height: 36px;
   background-color: transparent;
-  margin-bottom: 0em;
+  padding: 0;
+  position: absolute;
+  margin-left: 1em;
 }
 
 .addButton:focus {
   outline: none;
 }
 
+.addIcon2:hover {
+  background-color: rgb(0, 255, 0);
+}
+
+.checkboxListe {
+  display: inline-block;
+  position: relative;
+}
 
 
+.itemTextfeldListe {
+  font-size: 1em;
+  border: 1px solid #1a1819;
+  padding: 0.3em;
+  border-radius: 0.5em;
+  width: 18em;
+  height: 1.5em;
+  position: relative;
+}
+
+.itemTextfeldListe:focus {
+  outline: none;
+}
 
 .ItemLoeschenKnopf {
   border: none;
   display: inline-block;
   background-color: transparent;
   margin-bottom: 0em;
+  position: relative;
+
 }
 
 .ItemLoeschenKnopf:focus{
@@ -241,28 +273,6 @@ div.listDiv:hover {
   background-color: red;
   border-radius: 3em;
 }
-
-
-
-
-
-
-
-.checkboxListe {
-  display: inline-block;
-  float: left;
-}
-
-.itemTextfeldListe {
-  display: inline-block;
-  float: left;
-
-}
-
-.itemListe {
-  list-style: none;
-}
-
 
 
 
