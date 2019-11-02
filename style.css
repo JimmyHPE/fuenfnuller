@@ -264,6 +264,7 @@ div.listDiv:hover {
   margin-bottom: 0em;
   position: relative;
   height: 25px;
+  filter: invert(1);
 }
 
 .garbageIcon {
@@ -272,7 +273,7 @@ div.listDiv:hover {
 }
 
 .ItemLoeschenKnopf:hover {
-  filter: invert(1);
+  filter: invert(0);
 }
 
 .garbageIcon:hover {
