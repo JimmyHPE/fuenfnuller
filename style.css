@@ -241,6 +241,8 @@ div.listDiv:hover {
   display: inline-block;
   position: relative;
   margin-bottom: 0;
+  width: 15px;
+  height: 15px;
 }
 
 
