@@ -145,8 +145,8 @@ button{
 }
 
 .addIcon:hover{
-  width: 45px;
-  height: 45px;
+  width: 2.9vw;
+  height: 2.9vh;
 }
 
 ul {
@@ -216,33 +216,51 @@ div.listDiv:hover {
 .addButton {
   border: none;
   display: inline;
-  width: 36px;
-  height: 36px;
+  width: 3.5vh;
+  height: 3.5vh;
   background-color: transparent;
   padding: 0;
   position: absolute;
-  margin-left: 1em;
+  margin-left: 0.5vw;
 }
+
+
 
 .addButton:focus {
   outline: none;
 }
 
+.addIcon2{
+  width: 100%;
+  height: 100%;
+}
+
 .addIcon2:hover {
   filter: invert(0.5);
+  width: 119%;
+  height: 119%;
 }
 
 .checkboxListe {
   display: inline-block;
   position: relative;
   margin-bottom: 0;
-  width: 15px;
-  height: 15px;
+  width: 2.7vh;
+  height: 2.7vw;
 }
 
+.formZweiListe{
+  width: 100%
+}
+
+.hinzufuegenTextfeldListe{
+  width: 80%;
+}
 
 .itemTextfeldListe {
   font-size: 1em;
+  width: 80%;
+  height: 3vh;
   border: none;
   padding: 0.6em;
   padding-top: 0.3em;
@@ -267,8 +285,8 @@ div.listDiv:hover {
 }
 
 .garbageIcon {
-  width: 25px;
-  height: 25px;
+  width: 2.7vh;
+  height: 2.7vh;
 }
 
 .ItemLoeschenKnopf:hover {
@@ -282,16 +300,6 @@ div.listDiv:hover {
 .ItemLoeschenKnopf:focus{
   outline: none;
 }
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 1000px) {
   .hinzufuegenTextfeldListe {
@@ -312,7 +320,9 @@ div.listDiv:hover {
 
 }
 
-
+.checkboxListe {
+  bottom: -1em;
+}
 
 
 
