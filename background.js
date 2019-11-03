@@ -5,7 +5,7 @@ var gesamtHtml = '';
 var arrayAnZeilen = [];
 
 //Schleifenfurchläufe für die Zeile
-for(let j = 0; j < 140; j++){
+for(let j = 0; j < 45; j++){
 
   let zeileString = '';
   //Zufällige Id (für CSS) bestimmen. Es gibt 5 verschiedene Ids, welche die Geschwindigkeit der Animation bestimmen

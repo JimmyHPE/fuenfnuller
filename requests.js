@@ -65,6 +65,7 @@ function checkListenelement(listId, itemId, checkboxId){
 
   //Überprüfen, ob die Box abgehakt ist - Status entsprechend in JSON angeben
   var status;
+  console.log(url);
   if (document.getElementById(checkboxId).checked == true){
     status =  true;
   }
