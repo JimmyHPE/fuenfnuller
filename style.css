@@ -320,7 +320,7 @@ div.listDiv:hover {
 
 
 @media (max-width: 724px) {
-  
+
   .itemTextfeldListe {
     font-size: 0.6em;
   }
@@ -329,7 +329,7 @@ div.listDiv:hover {
     width: 10px;
     height: 10px;
   }
-  
+
   .garbageIcon {
     width: 20px;
     height: 20px;
@@ -381,8 +381,6 @@ div.listDiv:hover {
     display: none;
   }
 }
-<<<<<<< HEAD
-=======
 
 @media (max-width: 355px){
   .itemTextfeldListe {
@@ -393,5 +391,3 @@ div.listDiv:hover {
     width: 17em;
   }
 }
-
->>>>>>> 13dfbc9f8d66b5476c0e8eea598473e02be6ab13
