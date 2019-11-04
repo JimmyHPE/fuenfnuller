@@ -1,0 +1,27 @@
+Wem wurde die Seite gewidmet? 
+    Bier
+    Schokolade
+    Greta
+    HPE
+    
+Welche Hintergrundmusik läuft?
+    Saufen morgens, mittags, abends
+    Bierkapitän
+    Geh mal Bier holen
+    Viva Colonia
+
+Wie viele Zeilen Code hat das HTML?
+    VORERST 74
+
+Wie viele Zeilen Code hat das CSS?
+    VORERST 385
+
+Wie viele Zeilen Code hat das JS?
+    Vorerst 300
+
+Ab wie viel Geld bekommt man eine 5.0er Dose?
+    0,45€
+    59
+    29
+    75
+
