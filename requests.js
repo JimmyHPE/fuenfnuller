@@ -144,7 +144,7 @@ function buildListe(listId, listName, listItems){
 
 
 
-    
+
     //inner HTML von ul
     console.log(elementeInUl);
     ulList.innerHTML = elementeInUl;
@@ -235,7 +235,7 @@ function buildListenDropdown(listenInfos){
     listenId = listenInfos[i]._id;
     listenName = listenInfos[i].name;
 
-    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenId + "'" +')">'+ listenName +'</a><button class="ListeLoeschenKnopf" onclick="deleteListe('+"'"+listenId+"'"+')"><img class="loeschenBild" src="delete.png" width="18px" height="18px"></img></button>';
+    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenId + "'" +')">'+ listenName +'<button class="ListeLoeschenKnopf" onclick="deleteListe('+"'"+listenId+"'"+')"><img class="loeschenBild" src="delete.png" width="18px" height="18px"></img></button></a>';
   }
 
   for (var j = 0; j < einzufuegendesHtml.length; j++) {
