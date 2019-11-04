@@ -326,44 +326,61 @@ div.listDiv:hover {
 
 
 
-@media (max-width:820px){
-  .suche {
-    width: 100%;
-    position: center;
-    float: none;
-  }
-}
 
 
-@media (max-width: 724px) {
+@media (max-width: 820px) {
 
   .suchfeld {
     text-align: center;
-    margin: 0em;
     float: none;
-  }
+    display: block;
+    margin-left: 10%; 
+    margin-right: 10%;
+}
 
   .suche {
-    height: 2em;
+    height: 2em;   
+
   }
 
   .addListeButton {
     display: none;
   }
-
 }
 
+
+@media (max-width: 728px) {
+  .suche {
+    margin-top: 0em;
+  }
+}
+  
 @media (max-width: 560px) {
-  ul {
-    width: 90%;
+
+  .checkboxListe {
+    width: 1.3em;
+    height: 1.3em;
+    bottom: -0.25em;
+  }
+
+  .itemTextfeldListe {
+    font-size: 1em;
+  }
+
+  .hinzufuegenTextfeldListe {
+    width: 40%;
+    font-size: 0.8em;
+  }
+
+  .ItemLoeschenKnopf {
+    bottom: -0.4em;
+  }
+
+  .suche {
+    width: 12em;
   }
 }
 
-@media (max-width: 440px) {
-  .itemTextfeldListe {
-    width: 7.5em;
-  }
-}
 
 @media (max-width:416px){
   .original {
@@ -382,8 +399,7 @@ div.listDiv:hover {
   }
 }
 
-@media (max-width: 320px){
-  .itemTextfeldListe {
-    width: 6em;
-  }
-}
+
+
+
+
