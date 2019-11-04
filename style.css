@@ -330,13 +330,12 @@ div.listDiv:hover {
     text-align: center;
     float: none;
     display: block;
-    margin-left: auto; 
-    margin-right: auto;
+    margin-left: 10%; 
+    margin-right: 10%;
 }
 
   .suche {
     height: 2em;   
-    margin-top: 5.3em;
 
   }
 
@@ -372,6 +371,10 @@ div.listDiv:hover {
   .ItemLoeschenKnopf {
     bottom: -0.4em;
   }
+
+  .suche {
+    width: 12em;
+  }
 }
 
 
@@ -393,11 +396,6 @@ div.listDiv:hover {
 }
 
 
-.suchfeld{
-  float: right;
-  margin-top: 0.65em;
-  display: flex;
-}
 
 
 
