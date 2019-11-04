@@ -65,6 +65,7 @@ function checkListenelement(listId, itemId, checkboxId){
 
   //Überprüfen, ob die Box abgehakt ist - Status entsprechend in JSON angeben
   var status;
+  console.log(url);
   if (document.getElementById(checkboxId).checked == true){
     status =  true;
   }
@@ -140,9 +141,9 @@ function buildListe(listId, listName, listItems){
     }
     //Endstück den gesamten String anhängen
     elementeInUl += '</fieldset></form><form class="formZweiListe" id="formZweiListe"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Item hinzufügen" id="' +
-    eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon2" src="addIcon.png" width="38px" height="38px"></img></button><script>document.getElementById("formZweiListe").addEventListener("submit", function(eve) {eve.preventDefault();}, false);var inputZwei = document.getElementById('+ "'" + eingabeEid + "'" +');inputZwei.addEventListener("keyup", function(eventZwei) {if (eventZwei.keyCode === 13)' + '{document.getElementById("addItemBtn").click();}});</script></form></div>';
+    eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon2" src="addIcon.png" width="38px" height="38px"></img></button>';
 
-
+    elementeInUl += '<script>document.getElementById("formZweiListe").addEventListener("submit", function(e) {e.preventDefault();}, false);var inputZwei = document.getElementById('+ "'" + eingabeEid + "'" +');inputZwei.addEventListener("keyup", function(event) {if (event.keyCode === 13)' + '{document.getElementById("addItemBtn").click();}});</script></form></div>';
 
 
     //inner HTML von ul
@@ -174,9 +175,6 @@ function getListeAktuell(listId){
   //url aus id der suchleiste zusammenbauen
   var url = baseUrl + listId.toString();
 
-  //sichergehen, dass die Liste nicht aus unerklärlichen Gründen zwei Mal auf der Seite angezeigt wird
-  if (document.getElementById(listId) == null) {
-
   //GET Request
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", url, true);
@@ -194,11 +192,6 @@ function getListeAktuell(listId){
   };
 
   xhttp.send();
-  }
-
-  else {
-  alert("die Liste ist schon offen!")
-}
 
 }
 
@@ -251,7 +244,6 @@ function deleteListe(listenId){
   var xhttp = new XMLHttpRequest();
   xhttp.open("DELETE", url, true);
   xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
-  console.log(url);
   xhttp.onreadystatechange = function() {
 
     //wenn request erfolgreich ist

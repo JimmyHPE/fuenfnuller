@@ -106,6 +106,9 @@ button{
   border-radius: 2em;
 }
 
+.ListeLoeschenKnopf:focus {
+  outline: none;
+}
 
 .suchfeld{
   float: right;
@@ -157,9 +160,7 @@ ul {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0;
-  padding-left: 0;
-  height: 30em;
+  margin-top: 6em;
 }
 
 div.listDiv {
@@ -169,6 +170,7 @@ div.listDiv {
   height: 100%;
   text-align: center;
   position: center;
+  padding-bottom: 2em;
 }
 
 div.listDiv:hover {
@@ -181,6 +183,8 @@ div.listDiv:hover {
   font-size: 1.7em;
   text-align: center;
   margin: 0.3em;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
 }
 
 .fieldsetListe {
@@ -200,10 +204,10 @@ div.listDiv:hover {
    border: 1px solid #1a1819;
    padding: 0.3em;
    border-radius: 0.2em;
-   width: 18em;
+   width: 60%;
    height: 1.5em;
    position: relative;
-   margin-top: 0.1em; 
+   margin-top: 0.8em;
 }
 
 .hinzufuegenTextfeldListe:focus {
@@ -214,17 +218,24 @@ div.listDiv:hover {
 
 .addButton {
   border: none;
-  display: inline;
-  width: 36px;
-  height: 36px;
+  width: 2em;
+  height: 2em;
   background-color: transparent;
   padding: 0;
-  position: absolute;
   margin-left: 1em;
+  display: inline-block;
+  position: relative;
+  bottom: -1.1em;
+  height: 25px;
 }
 
 .addButton:focus {
   outline: none;
+}
+
+.addIcon2{
+  width: 40px;
+  height: 40px;
 }
 
 .addIcon2:hover {
@@ -234,9 +245,14 @@ div.listDiv:hover {
 .checkboxListe {
   display: inline-block;
   position: relative;
-  margin-bottom: 0;
-  width: 15px;
-  height: 15px;
+  width: 1.7em;
+  height: 1.7em;
+  margin-right: 1em;
+  bottom: -0.4em;
+}
+
+.formZweiListe{
+  width: 100%
 }
 
 
@@ -252,6 +268,7 @@ div.listDiv:hover {
   color: white;
   margin-bottom: 0.2em;
   border-radius: 0.2em;
+  width: 50%;
 }
 
 .itemTextfeldListe:focus {
@@ -262,15 +279,10 @@ div.listDiv:hover {
   border: none;
   display: inline-block;
   background-color: transparent;
-  bottom: -0.5em;
   position: relative;
+  bottom: -0.3em;
   height: 25px;
   filter: invert(1);
-}
-
-.garbageIcon {
-  width: 25px;
-  height: 25px;
 }
 
 .ItemLoeschenKnopf:hover {
@@ -278,7 +290,7 @@ div.listDiv:hover {
 }
 
 .garbageIcon:hover {
-  filter: drop-shadow(10px 10px 10px 10px red);
+  filter: drop-shadow(10px 10px 10px 10px);
 }
 
 .ItemLoeschenKnopf:focus{
@@ -288,10 +300,10 @@ div.listDiv:hover {
 
 .audio {
   width: 1.2em;
-  position: absolute;
   bottom: 0;
   left: 0;
   z-index: 1;
+  position: fixed;
 }
 
 .audio:hover {
@@ -316,17 +328,11 @@ div.listDiv:hover {
     position: center;
     float: none;
   }
-
-  .hinzufuegenTextfeldListe {
-    width: 10em;
-  }
-
 }
 
 
-
 @media (max-width: 724px) {
-  
+
   .suchfeld {
     text-align: center;
     margin: 0em;

@@ -39,18 +39,18 @@
 
           <!--Input Feld mit der Enter Taste einreichen-->
           <script>
-          document.getElementById('form').addEventListener('submit', function(e) {
+          document.getElementById("form").addEventListener("submit", function(e) {
             e.preventDefault();
           }, false);
           // Get the input field
-          var input = document.getElementById('add');
+          var input = document.getElementById("add");
           // Execute a function when the user releases a key on the keyboard
           input.addEventListener("keyup", function(event) {
             // Number 13 is the "Enter" key on the keyboard
             if (event.keyCode === 13) {
               // Cancel the default action, if needed
               // Trigger the button element with a click
-              document.getElementById('addListeBtn').click();
+              document.getElementById("addListeBtn").click();
             }
           });
           </script>
