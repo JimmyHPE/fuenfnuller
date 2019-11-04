@@ -281,3 +281,21 @@ function createListe(){
 
   xhttp.send(JSON.stringify(jsonObject));
 }
+
+var myVar = setInterval(myTimer, 1000);
+ function myTimer() {
+ document.getElementById("playAudio").play();
+ } 
+function audioPlaying() {
+var myAudio = document.getElementById('playAudio');
+
+if (myAudio.duration > 0 && !myAudio.paused) {
+    clearInterval(myVar);
+    document.getElementById("playAudio").pause();
+
+} else {
+
+    document.getElementById("playAudio").play();
+
+}
+} 
