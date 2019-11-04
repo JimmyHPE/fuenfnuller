@@ -158,12 +158,13 @@ button{
 
 ul {
   display: inline;
-  width: 90%;
+  width: 80%;
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
   padding-left: 0;
+  height: 30em;
 }
 
 div.listDiv {
@@ -327,7 +328,7 @@ div.listDiv:hover {
   
   .suchfeld {
     text-align: center;
-    margin: 5.3em 4em;
+    margin: 0em;
     float: none;
   }
 
