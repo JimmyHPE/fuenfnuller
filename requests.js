@@ -141,11 +141,8 @@ function buildListe(listId, listName, listItems){
     }
 
     //Endstück den gesamten String anhängen
-    elementeInUl += '</fieldset></form><form class="formZweiListe" id="formZweiListe"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Item hinzufügen" id="' +
-    eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon2" src="addIcon.png" width="38px" height="38px"></img></button>';
-
-    //submit on Enter (Funktioniert irgendwie nicht)
-    elementeInUl += '<script>document.getElementById("formZweiListe").addEventListener("submit", function(e) {e.preventDefault();}, false);var inputZwei = document.getElementById('+ "'" + eingabeEid + "'" +');inputZwei.addEventListener("keyup", function(event) {if (event.keyCode === 13)' + '{document.getElementById("addItemBtn").click();}});</script></form></div>';
+    elementeInUl += '</fieldset></form><form class="formZweiListe" id="formZweiListe"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Neues Item hinzufügen..." id="' +
+    eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon2" src="addIcon.png" width="38px" height="38px"></img></button></form></div>';
 
     //inner HTML von ul
     ulList.innerHTML = elementeInUl;
