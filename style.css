@@ -154,7 +154,7 @@ button{
 
 ul {
   display: inline;
-  width: 80%;
+  width: 70%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -167,7 +167,6 @@ div.listDiv {
   background-color: white;
   background-color:rgba(255, 255, 255, 0.7);
   padding-top: 0.5em;
-  padding-bottom: 0.3em;
   height: 100%;
   text-align: center;
   position: center;
@@ -180,9 +179,9 @@ div.listDiv:hover {
 
 .h1Liste {
   font-family: 'Arial';
-  font-size: 1.5em;
+  font-size: 1.7em;
   text-align: center;
-  margin: 0;
+  margin: 0.3em;
 }
 
 .fieldsetListe {
@@ -201,10 +200,11 @@ div.listDiv:hover {
    font-size: 1em;
    border: 1px solid #1a1819;
    padding: 0.3em;
-   border-radius: 0.5em;
+   border-radius: 0.2em;
    width: 18em;
    height: 1.5em;
    position: relative;
+   margin-top: 0.1em; 
 }
 
 .hinzufuegenTextfeldListe:focus {
@@ -242,14 +242,17 @@ div.listDiv:hover {
 
 
 .itemTextfeldListe {
-  font-size: 1em;
+  font-size: 1.4em;
+  text-align: center;
   border: none;
   padding: 0.6em;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
   position: relative;
-  background-color: rgba(145, 143, 143, 0.473);
-  border-radius: 1em;
+  background-color: #1a18197e;
+  color: white;
+  margin-bottom: 0.2em;
+  border-radius: 0.2em;
 }
 
 .itemTextfeldListe:focus {
@@ -320,6 +323,8 @@ div.listDiv:hover {
 
 }
 
+
+
 @media (max-width: 724px) {
   
   .suchfeld {
@@ -338,12 +343,6 @@ div.listDiv:hover {
 
   .addListeButton {
     filter: invert(0);
-  }
-}
-
-@media (max-width: 634px){
-  .suchfeld {
-    margin-top: 0em;
   }
 }
 
