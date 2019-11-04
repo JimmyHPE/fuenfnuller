@@ -12,8 +12,7 @@
     <script type="text/javascript" src="background.js"></script>
     <script type="text/javascript" src="requests.js"></script>
 
-  </head>
-
+</head>
 
 <body class="grid-bereiche">
 
@@ -22,7 +21,10 @@
         <a href="https://www.kenn-dein-limit.de/">
           <img class="logo" src="logo5.0.jpg">
         </a>
+<<<<<<< HEAD
 
+=======
+>>>>>>> b2ba3c9e844d3d718c45ee50f0abe1f5640a2cca
         <div class="dropdown" id="dropdown">
           <img class="original" id="originalBild" src="original.jpg" onmouseover="repeater=setInterval(getListenInfos(), 100);" onmouseout="clearInterval(repeater);">
           <div class="dropdown-content" id="dropdown-content">
@@ -38,23 +40,20 @@
           <button class="addListeButton" type="button" id="addListeBtn" name="submit" onclick="createListe()">
             <img class="addIcon" src="addIcon.png" width="38px" height="38px"></img>
           </button>
-
           <!--Input Feld mit der Enter Taste einreichen-->
           <script>
-          document.getElementById("form").addEventListener("submit", function(e) {
-            e.preventDefault();
-          }, false);
-          // Get the input field
-          var input = document.getElementById("add");
-          // Execute a function when the user releases a key on the keyboard
-          input.addEventListener("keyup", function(event) {
+            document.getElementById("form").addEventListener("submit", function(e) {e.preventDefault();}, false);
+            // Get the input field
+            var input = document.getElementById("add");
+            // Execute a function when the user releases a key on the keyboard
+            input.addEventListener("keyup", function(event) {
             // Number 13 is the "Enter" key on the keyboard
             if (event.keyCode === 13) {
               // Cancel the default action, if needed
               // Trigger the button element with a click
               document.getElementById("addListeBtn").click();
             }
-          });
+            });
           </script>
         </form>
       </span>
@@ -63,14 +62,17 @@
       <audio class="audio" controls>
           <source  src="song.mp3" type="audio/mpeg">
       </audio>
+<<<<<<< HEAD
      <div id="hintergrund">
        <script>
+=======
+      <div id="hintergrund">
+       <script type="text/javascript">
+>>>>>>> b2ba3c9e844d3d718c45ee50f0abe1f5640a2cca
         getBackground();
        </script>
-     </div>
+      </div>
      <!-- Hier kommt die Form rein, die in der Suchleiste angegeben wird -->
-
    </div>
-
 </body>
 </html>
