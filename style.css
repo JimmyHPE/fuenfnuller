@@ -2,8 +2,6 @@ html, body{
   font-family: Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
-  /* Scrollen verhindern*/
-
   /* Verhindern, dass der User Dinge markieren kann markieren kann */
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -301,12 +299,12 @@ ul {
     text-align: center;
     float: none;
     display: block;
-    margin-left: 10%; 
+    margin-left: 10%;
     margin-right: 10%;
   }
 
   .suche {
-    height: 2em;   
+    height: 2em;
   }
 
   .addListeButton {
@@ -322,7 +320,7 @@ ul {
   }
 
 }
-  
+
 @media (max-width: 560px) {
 
   .checkboxListe {
@@ -351,7 +349,7 @@ ul {
 }
 
 @media (max-width:416px) {
-  
+
   .original {
     display: none;
   }
@@ -366,7 +364,7 @@ ul {
 }
 
 @media (min-width:417px) {
- 
+
   .list {
     display: none;
   }
