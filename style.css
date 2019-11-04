@@ -3,8 +3,7 @@ html, body{
   padding: 0;
   margin: 0;
   /* Scrollen verhindern*/
-  height: 100%;
-  overflow: hidden;
+
   /* Verhindern, dass der User Dinge markieren kann markieren kann */
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -292,6 +291,7 @@ div.listDiv:hover {
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 1;
 }
 
 .audio:hover {
@@ -341,14 +341,17 @@ div.listDiv:hover {
     display: none;
   }
 
-  .addListeButton {
-    filter: invert(0);
-  }
 }
 
 @media (max-width: 560px) {
   ul {
-    margin-left: 1em;
+    width: 90%;
+  }
+}
+
+@media (max-width: 440px) {
+  .itemTextfeldListe {
+    width: 7.5em;
   }
 }
 
@@ -369,8 +372,8 @@ div.listDiv:hover {
   }
 }
 
-@media (max-width: 355px){
+@media (max-width: 320px){
   .itemTextfeldListe {
-    width: 7.5em;
+    width: 6em;
   }
 }
