@@ -1,5 +1,7 @@
-var baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/"; //Wird für jeden Request benötigt
+const baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/"; //Wird für jeden Request benötigt
+const apiKey = "d8a323f68873a9b1d425c0cf5f9ee733"; //Key für private Anfragen
 var repeater; //für das Dropdown Menü
+var myVar = setInterval(myTimer, 1000); //Timer für die Audiospur
 var listenInfos;
 
 function addListenelement(listId){
@@ -16,15 +18,18 @@ function addListenelement(listId){
   //POST Request
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", url, true);
-  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  xhttp.setRequestHeader("Authorization", apiKey);
   xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.onreadystatechange = function() {//Call a function when the state changes.
+    xhttp.onreadystatechange = function() {
+
+      //Wenn die Anfrage erfolgreich ist
       if(xhttp.readyState == 4 && xhttp.status == 200) {
           console.log(xhttp.responseText);
           //neue, aktuelle Liste anfordern
           getListeAktuell(listId);
         }
       };
+
   xhttp.send(JSON.stringify(neuesItemJson));
 
   //das Input Feld zum Einfügen wird geleert
@@ -41,9 +46,11 @@ function removeListenelement(listId, itemId){
   //DELETE request
   var xhttp = new XMLHttpRequest();
   xhttp.open("DELETE", url, true);
-  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  xhttp.setRequestHeader("Authorization", apiKey);
   xhttp.setRequestHeader("Content-Type", "application/json");
-  xhttp.onreadystatechange = function() {//Call a function when the state changes.
+  xhttp.onreadystatechange = function() {
+
+      //Wenn die Anfrage erfolgreich ist
       if(xhttp.readyState == 4 && xhttp.status == 200) {
           console.log(xhttp.responseText);
           //neue, aktuelle Liste anfordern
@@ -56,22 +63,21 @@ function removeListenelement(listId, itemId){
 
 }
 
+//Diese Funktion wird durch das Abhaken einer Liste ausgelöst
 function checkListenelement(listId, itemId, checkboxId){
-
-  //Diese Funktion wird durch das Abhaken einer Liste ausgelöst
 
   //URL zusammenbauen
   var url = baseUrl + listId.toString() + "/items/" + itemId.toString();
 
   //Überprüfen, ob die Box abgehakt ist - Status entsprechend in JSON angeben
   var status;
-  console.log(url);
   if (document.getElementById(checkboxId).checked == true){
     status =  true;
   }
   else {
     status =  false;
   }
+
   var jsonObject = {
     "bought" : status
   }
@@ -81,18 +87,13 @@ function checkListenelement(listId, itemId, checkboxId){
   xhttp.open("PUT", url, true);
   xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
   xhttp.setRequestHeader("Content-Type", "application/json");
-  xhttp.onreadystatechange = function() {//Call a function when the state changes.
-      if(xhttp.readyState == 4 && xhttp.status == 200) {
-          console.log(xhttp.responseText);
-        }
-      };
 
+  //Abschicken
   xhttp.send(JSON.stringify(jsonObject));
 }
 
+//In dieser Funktion wird ein HTML-Konstrukt dynamisch mit Listendaten gebaut.
 function buildListe(listId, listName, listItems){
-
-  //In dieser Funktion wird ein HTML-Konstrukt dynamisch mit Listendaten gebaut.
 
   //ul-Element erzeugen
   var ulList = document.createElement('ul');
@@ -101,7 +102,7 @@ function buildListe(listId, listName, listItems){
   ulList.id = listId;
   ulList.class = "listeUl";
 
-  //String mit HTML Code erzeugen, welches später als innerHTML von der ul gesetzt wird.
+  //Strings mit HTML Code der Items erzeugen, welche später als innerHTML von der ul gesetzt werden.
   var stringsToInsert = [];
 
     //HTML Elemente für jedes einzelne Item Basteln
@@ -133,60 +134,67 @@ function buildListe(listId, listName, listItems){
     var elementeInUl = '<div class="listDiv"><h1 class="h1Liste" id="' + listId + '">' + listName + '</h1><form class="formEinsListe" action="#" method="post"><fieldset class="fieldsetListe">';
     var eingabeEid = ulList.id.toString() + 'eid';
 
+    //HTML code der einzelnen Items hinzufügen
     for (let j = 0; j < stringsToInsert.length; j++){
 
-      //Items dem gesamten String anhängen
       elementeInUl += stringsToInsert[j];
-
     }
+
     //Endstück den gesamten String anhängen
     elementeInUl += '</fieldset></form><form class="formZweiListe" id="formZweiListe"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Item hinzufügen" id="' +
     eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon2" src="addIcon.png" width="38px" height="38px"></img></button>';
 
+    //submit on Enter (Funktioniert irgendwie nicht)
     elementeInUl += '<script>document.getElementById("formZweiListe").addEventListener("submit", function(e) {e.preventDefault();}, false);var inputZwei = document.getElementById('+ "'" + eingabeEid + "'" +');inputZwei.addEventListener("keyup", function(event) {if (event.keyCode === 13)' + '{document.getElementById("addItemBtn").click();}});</script></form></div>';
 
-
     //inner HTML von ul
-    console.log(elementeInUl);
     ulList.innerHTML = elementeInUl;
 
     //Alte liste entfernen, wenn vorhanden
-    for(let i = 0; i<listenInfos.length; i++){
+    for(let i = 0; i < listenInfos.length; i++){
+
       if (document.getElementById(listenInfos[i]) != null) {
+
         var element = document.getElementById(listenInfos[i]);
         element.parentNode.removeChild(element);
       }
     }
 
-    //ul der Seite anhängen
+    //Liste der Seite anhängen
     document.body.appendChild(ulList);
 
 }
 
+//Funktion, um aktualisierte Liste zu erhalten (in etwa nach Item-Löschung)
 function getListeAktuell(listId){
 
+  //Liste von der Seite entfernen, falls offen & vorhanden
   for(let i = 0; i<listenInfos.length; i++){
+
     if (document.getElementById(listenInfos[i]._id) != null) {
+
       var element = document.getElementById(listenInfos[i]._id);
       element.parentNode.removeChild(element);
     }
   }
 
-  //url aus id der suchleiste zusammenbauen
+  //url für die Anfrage zusammenbauen
   var url = baseUrl + listId.toString();
 
   //GET Request
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", url, true);
-  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  xhttp.setRequestHeader("Authorization", apiKey);
   xhttp.setRequestHeader("Accept", "application/json");
 
   xhttp.onreadystatechange = function() {
+
     if (this.readyState == 4 && this.status == 200) {
+
         //JSON Objekt parsen
-        console.log(this.responseText);
         var listeJson = JSON.parse(this.responseText);
-        console.log(listeJson);
+
+        //Empfangene Daten mitgeben und Liste bauen
         buildListe(listeJson._id, listeJson.name, listeJson.items);
     }
   };
@@ -195,13 +203,12 @@ function getListeAktuell(listId){
 
 }
 
+//On hover ausgelöst - frägt live-Daten für das Dropdown-Menü an
 function getListenInfos(){
-  //triggered on hover
-  //GET alle Listen mit Name und id
 
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", baseUrl, true);
-  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  xhttp.setRequestHeader("Authorization", apiKey);
 
   xhttp.onreadystatechange = function() {
 
@@ -210,57 +217,63 @@ function getListenInfos(){
         //JSON Objekt parsen
         listenInfos = JSON.parse(this.responseText);
 
-        //HTML ELEMENT BAUEN und Item values einfügen
+        //Dropdown Menü mit empfangenen Daten bauen
         buildListenDropdown(listenInfos);
     }
     };
 
     xhttp.send();
-  //HTML a element erzeugen und appenden
 }
 
 function buildListenDropdown(listenInfos){
 
   var kompletterString = '';
   var einzufuegendesHtml = [];
-  //HTML element BAUEN
-  for (let i = 0; i < listenInfos.length; i++){
-    listenId = listenInfos[i]._id;
-    listenName = listenInfos[i].name;
 
-    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenId + "'" +')">'+ listenName +'<button class="ListeLoeschenKnopf" onclick="deleteListe('+"'"+listenId+"'"+')"><img class="loeschenBild" src="delete.png" width="18px" height="18px"></img></button></a>';
+  //Für jede vorhandene Liste wird mit dessen Daten ein HTML Konstrukt gebaut, welches im Dropdown angezeigt wird.
+  for (let i = 0; i < listenInfos.length; i++){
+
+    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenInfos[i]._id + "'" +')">'+ listenInfos[i].name +'<button class="ListeLoeschenKnopf" onclick="deleteListe('+"'"+listenInfos[i]._id+"'"+')"><img class="loeschenBild" src="delete.png" width="18px" height="18px"></img></button></a>';
   }
 
+  //HTML aller Listen zusammenfügen
   for (var j = 0; j < einzufuegendesHtml.length; j++) {
     kompletterString += einzufuegendesHtml[j];
   }
-  //HTML element einfuegen
+
+  //HTML Konstrukt einfuegen
   document.getElementById('dropdown-content').innerHTML = kompletterString;
 }
 
+//Diese Funktion löscht eine Liste unwiederruflich
 function deleteListe(listenId){
 
+  //url zusammenbauen
   var url = baseUrl + listenId;
+
   var xhttp = new XMLHttpRequest();
   xhttp.open("DELETE", url, true);
-  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  xhttp.setRequestHeader("Authorization", apiKey);
   xhttp.onreadystatechange = function() {
 
-    //wenn request erfolgreich ist
+    //Wenn Anfrage erfolgreich ist
     if (this.readyState == 4 && this.status == 200) {
 
       //Alte Liste Löschen, wenn offen
       if (document.getElementById(listenId) != null) {
+
         var element = document.getElementById(listenId);
         element.parentNode.removeChild(element);
       }
     }
-  }
+  };
   xhttp.send();
 }
 
+//Liste wird durch Eingabefeld erzeugt
 function createListe(){
 
+  //Inputfeld nach Listennamen auslesen
   var listName = document.getElementById('add').value.toString();
 
   var jsonObject = {
@@ -269,12 +282,18 @@ function createListe(){
 
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", baseUrl, true);
-  xhttp.setRequestHeader("Authorization", "d8a323f68873a9b1d425c0cf5f9ee733");
+  xhttp.setRequestHeader("Authorization", apiKey);
   xhttp.setRequestHeader("Content-Type", "application/json");
 
-  xhttp.onreadystatechange = function() {//Call a function when the state changes.
+  xhttp.onreadystatechange = function() {
+
+      //Wenn Anfrage erfolgreich ist
       if(xhttp.readyState == 4 && xhttp.status == 200) {
+
+          //Bestätigung ausgeben
           alert("Liste erstellt");
+
+          //Inputfeld leeren
           document.getElementById('add').value = '';
         }
       };
@@ -282,10 +301,14 @@ function createListe(){
   xhttp.send(JSON.stringify(jsonObject));
 }
 
-var myVar = setInterval(myTimer, 1000);
- function myTimer() {
- document.getElementById("playAudio").play();
- } 
+
+//Audiofeld Funktion
+function myTimer() {
+  if (document.getElementById("playAudio") != null) {
+    document.getElementById("playAudio").play();
+  }
+ }
+
 function audioPlaying() {
 var myAudio = document.getElementById('playAudio');
 
@@ -298,4 +321,4 @@ if (myAudio.duration > 0 && !myAudio.paused) {
     document.getElementById("playAudio").play();
 
 }
-} 
+}
