@@ -294,7 +294,7 @@ ul {
 
 .dropupbutton {
   background-color: transparent;
-  border: none;  
+  border: none;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -316,7 +316,7 @@ ul {
 
 .soundoff {
   background-color: transparent;
-  border: none;  
+  border: none;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -357,6 +357,7 @@ ul {
 
   .h1Liste {
     font-size: 1.3em;
+    letter-spacing: 0.2em;
   }
 
   .checkboxListe {
@@ -417,6 +418,7 @@ ul {
 
   .h1Liste {
     font-size: 1em;
+    letter-spacing: 0.1em;
   }
 
   .itemTextfeldListe {
