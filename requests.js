@@ -244,11 +244,6 @@ function buildListenDropdown(listenInfos){
     einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenInfos[i]._id + "'" +')">'
                             + listenInfos[i].name +'<button class="listeLoeschenKnopf" title="Liste löschen" onclick="deleteListe('+
                             "'" + listenInfos[i]._id + "'" + ')"><img class="loeschenBild" src="images/delete.png" width="18px" height="18px"></img></button></a>';
-<<<<<<< HEAD
-
-    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenInfos[i]._id + "'" +')">'+ listenInfos[i].name +'<button class="listeLoeschenKnopf" title="Liste löschen" onclick="deleteListe('+"'"+listenInfos[i]._id+"'"+')"><img class="loeschenBild" src="images/delete.png" width="18px" height="18px"></img></button></a>';
-=======
->>>>>>> f7fc86319c1fcffaa9895887521d5e7d6952c8cc
   }
 
   //HTML aller Listen zusammenfügen
@@ -336,8 +331,4 @@ if (myAudio.duration > 0 && !myAudio.paused) {
     document.getElementById("playAudio").play();
 
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> f7fc86319c1fcffaa9895887521d5e7d6952c8cc
 }
