@@ -21,16 +21,17 @@
         <a href="https://www.kenn-dein-limit.de/">
           <img class="logo" title="Bewusst genießen!" src="images/logo5.0.jpg">
         </a>
+
         <div class="dropdown" id="dropdown">
           <img class="original" id="originalBild" src="images/original.jpg" onmouseover="repeater=setInterval(getListenInfos(), 100);" onmouseout="clearInterval(repeater);">
           <div class="dropdown-content" id="dropdown-content">
-            <!--Hier stehen immer alle Listen drinnen-->
+            <!--Hier stehen immer alle existierenden Listen drinnen-->
           </div>
           <img class="list" src="images/list.jpg">
         </div>
       </span>
         <!-- Suchleiste, verbunden mit request.js-->
-      <span class="">
+      <span>
         <form class="suchfeld" id="form">
           <input class="suche" type="text" id="add" autocomplete="off" placeholder=" Neue Liste hinzufügen..."></input>
           <button class="addListeButton" title="Liste hinzufügen" type="button" id="addListeBtn" name="submit" onclick="createListe()">
@@ -58,7 +59,7 @@
       <audio class="playAudio" controls>
           <source  src="song.mp3" type="audio/mpeg">
       </audio>
-      <div id="hintergrund">
+     <div id="hintergrund">
        <script type="text/javascript">
         getBackground();
        </script>

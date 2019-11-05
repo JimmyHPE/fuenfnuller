@@ -216,16 +216,24 @@ function getListenInfos(){
 
         //Dropdown Menü mit empfangenen Daten bauen
         buildListenDropdown(listenInfos);
+    } else {
+      alert('Die Server sind nicht verfügbar')
     }
-    };
+  };
 
     xhttp.send();
+
 }
 
 function buildListenDropdown(listenInfos){
 
   var kompletterString = '';
   var einzufuegendesHtml = [];
+
+  //Wenn Server down oder keine Listen da
+  if (listenInfos.length == 0) {
+    einzufuegendesHtml[i] = '<a class="aListenName">Keine Listen vorhanden.</a>';
+  }
 
   //Für jede vorhandene Liste wird mit dessen Daten ein HTML Konstrukt gebaut, welches im Dropdown angezeigt wird.
   for (let i = 0; i < listenInfos.length; i++){
