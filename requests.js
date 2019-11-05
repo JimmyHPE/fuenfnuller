@@ -232,6 +232,11 @@ function buildListenDropdown(listenInfos){
   var kompletterString = '';
   var einzufuegendesHtml = [];
 
+  //Wenn keine Liste existiert oder das Backend keine liefert, Dropdown wiefolgt befüllen:
+  if (listenInfos.length == 0) {
+    kompletterString = '<a class="aListenName">Keine Listen vorhanden</a>'
+  }
+
   //Für jede vorhandene Liste wird mit dessen Daten ein HTML Konstrukt gebaut, welches im Dropdown angezeigt wird.
   for (let i = 0; i < listenInfos.length; i++){
 
