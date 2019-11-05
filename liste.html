@@ -11,7 +11,6 @@
     <link rel="icon" href="favicon.jpg" type="image/gif" sizes="20x16">
     <script type="text/javascript" src="background.js"></script>
     <script type="text/javascript" src="requests.js"></script>
-
 </head>
 
 <body class="grid-bereiche">
@@ -21,16 +20,15 @@
         <a href="https://www.kenn-dein-limit.de/">
           <img class="logo" src="logo5.0.jpg">
         </a>
-
         <div class="dropdown" id="dropdown">
           <img class="original" id="originalBild" src="original.jpg" onmouseover="repeater=setInterval(getListenInfos(), 100);" onmouseout="clearInterval(repeater);">
           <div class="dropdown-content" id="dropdown-content">
-            <!--Hier stehen immer alle existierenden Listen drinnen-->
+          <!--Hier stehen immer alle existierenden Listen drinnen (dynamisch)-->
           </div>
           <img class="list" src="list.jpg">
         </div>
       </span>
-        <!-- Suchleiste, verbunden mit request.js-->
+      <!-- "Hinzufügen"-Leiste, verbunden mit request.js-->
       <span>
         <form class="suchfeld" id="form">
           <input class="suche" type="text" id="add" autocomplete="off" placeholder=" Neue Liste hinzufügen..."></input>
@@ -40,14 +38,13 @@
           <!--Input Feld mit der Enter Taste einreichen-->
           <script>
             document.getElementById("form").addEventListener("submit", function(e) {e.preventDefault();}, false);
-            // Get the input field
+            // input Feld lesen
             var input = document.getElementById("add");
-            // Execute a function when the user releases a key on the keyboard
+            // Nach Tastatureingabe Funktion starten:
             input.addEventListener("keyup", function(event) {
-            // Number 13 is the "Enter" key on the keyboard
+            // Wenn Nr.13 geklickt wird (Enter-Taste):
             if (event.keyCode === 13) {
-              // Cancel the default action, if needed
-              // Trigger the button element with a click
+              // Klick Button
               document.getElementById("addListeBtn").click();
             }
             });
@@ -56,15 +53,17 @@
       </span>
    </div>
    <div class="content">
-      <audio class="audio" controls>
-          <source  src="song.mp3" type="audio/mpeg">
-      </audio>
-     <div id="hintergrund">
-       <script type="text/javascript">
-        getBackground();
-       </script>
-      </div>
-     <!-- Hier kommt die Form rein, die in der Suchleiste angegeben wird -->
+    <!--Musik-->
+    <audio class="audio" controls>
+          <source src="song.mp3" type="audio/mpeg">
+    </audio>
+    <!--Hintergrund-->
+    <div id="hintergrund">
+      <script type="text/javascript">
+      getBackground();
+      </script>
+    </div>
+     <!-- Hier kommt die ul rein, die durch Aufrufen einer Liste erzeugt wird -->
    </div>
 </body>
 </html>

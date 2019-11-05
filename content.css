@@ -1,3 +1,8 @@
+/* Diese CSS Datei ist speziell für den generierten Hintergrund
+   Sie legt grundlegende Dinge wie z.B. den Z-Index fest.
+
+   Zudem werden hier fünf verschiedene Ids mit animationen versehen, welche
+   von den einzelnen Zeilen im Hintergund in Anspruch genommen werden.*/
 #hintergrund {
   position: fixed;
   top: 0;
