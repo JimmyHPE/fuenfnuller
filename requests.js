@@ -312,13 +312,13 @@ function createListe(){
   xhttp.send(JSON.stringify(jsonObject));
 }
 
-//*Audiofeld Funktion
+//*audiotimer
 function myTimer() {
   if (document.getElementById("playAudio") != null) {
     document.getElementById("playAudio").play();
   }
  }
-
+//*durch Klicken auf den Lautsprecher wird Musik angehalten/weitergespielt
 function audioPlaying() {
 var myAudio = document.getElementById('playAudio');
 
