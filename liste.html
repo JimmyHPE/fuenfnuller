@@ -27,6 +27,7 @@
           </div>
           <img class="list" src="images/list.jpg">
         </div>
+        
       </span>
       <!-- "Hinzufügen"-Leiste, verbunden mit request.js-->
       <span>
@@ -54,9 +55,20 @@
    </div>
    <div class="content">
     <!--Musik-->
-    <audio class="playAudio" controls>
+    <div class="dropup">
+      <button class="dropupbutton"><img class="soundimage" src="images/sound.png" width="24px" height="24px"></button>
+      <div class="dropup-content">
+        <audio id="playAudio" controls>
           <source src="song.mp3" type="audio/mpeg">
-    </audio>
+        </audio>
+        <img class="soundoff" src="images/sound.png" width="24px" height="24px" onclick="audioPlaying()">
+      </div>
+    </div>
+    
+    
+    
+    
+    
     <!--Hintergrund-->
     <div id="hintergrund">
       <script type="text/javascript">
