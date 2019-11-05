@@ -117,20 +117,26 @@ function buildListe(listId, listName, listItems){
       //abfragen, ob das Item abgecheckt sein muss oder nicht
       if(itemBought == true){
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" title="Erledigt" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
-        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Item löschen" onclick="removeListenelement('
+        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" title="Erledigt" type="checkbox" id="'
+        + testIdCheckbox +'" onclick="checkListenelement(' + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox
+        + "'" +')" checked></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'
+        + ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Item löschen" onclick="removeListenelement('
         + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" title="Löschen" src="images/delete.png" width="25px" height="25px"></button></li>';
       } else {
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" title="Nicht erledigt" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
-        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Item löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" title="Löschen" src="images/delete.png" width="25px" height="25px"></button></li>';
+        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" title="Nicht erledigt" type="checkbox" id="'
+        + testIdCheckbox +'" onclick="checkListenelement(' + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'"
+        +')"></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'
+        + ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Item löschen" onclick="removeListenelement('
+        + "'" + ulList.id + "','" + itemId + "'"
+        + ')"><img class="garbageIcon" title="Löschen" src="images/delete.png" width="25px" height="25px"></button></li>';
       }
 
     }
 
     //HTML element für Ganze Liste basteln
-    var elementeInUl = '<div class="listDiv"><h1 class="h1Liste" id="' + listId + '">' + listName + '</h1><form class="formEinsListe" action="#" method="post"><fieldset class="fieldsetListe">';
+    var elementeInUl = '<div class="listDiv"><h1 class="h1Liste" id="' + listId + '">'
+                      + listName + '</h1><form class="formEinsListe" action="#" method="post"><fieldset class="fieldsetListe">';
     var eingabeEid = ulList.id.toString() + 'eid';
 
     //HTML code der einzelnen Items hinzufügen
@@ -226,10 +232,17 @@ function buildListenDropdown(listenInfos){
   var kompletterString = '';
   var einzufuegendesHtml = [];
 
+  //Wenn keine Liste existiert oder das Backend keine liefert, Dropdown wiefolgt befüllen:
+  if (listenInfos.length == 0) {
+    kompletterString = '<a class="aListenName">Keine Listen vorhanden</a>'
+  }
+
   //Für jede vorhandene Liste wird mit dessen Daten ein HTML Konstrukt gebaut, welches im Dropdown angezeigt wird.
   for (let i = 0; i < listenInfos.length; i++){
 
-    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenInfos[i]._id + "'" +')">'+ listenInfos[i].name +'<button class="ListeLoeschenKnopf" title="Liste löschen" onclick="deleteListe('+"'"+listenInfos[i]._id+"'"+')"><img class="loeschenBild" src="images/delete.png" width="18px" height="18px"></img></button></a>';
+    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenInfos[i]._id + "'" +')">'
+                            + listenInfos[i].name +'<button class="ListeLoeschenKnopf" title="Liste löschen" onclick="deleteListe('+
+                            "'" + listenInfos[i]._id + "'" + ')"><img class="loeschenBild" src="images/delete.png" width="18px" height="18px"></img></button></a>';
   }
 
   //HTML aller Listen zusammenfügen
@@ -255,6 +268,7 @@ function deleteListe(listenId){
     //Wenn Anfrage erfolgreich ist
     if (this.readyState == 4 && this.status == 200) {
 
+      alert('Diese Liste wurde gelöscht')
       //Alte Liste Löschen, wenn offen
       if (document.getElementById(listenId) != null) {
 
@@ -297,7 +311,6 @@ function createListe(){
   xhttp.send(JSON.stringify(jsonObject));
 }
 
-
 //*Audiofeld Funktion
 function myTimer() {
   if (document.getElementById("playAudio") != null) {
@@ -318,4 +331,3 @@ if (myAudio.duration > 0 && !myAudio.paused) {
 
 }
 }
-
