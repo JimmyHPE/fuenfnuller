@@ -8,7 +8,7 @@
     <title>Die 5.0 Einkaufsliste</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="content.css">
-    <link rel="icon" href="favicon.jpg" type="image/gif" sizes="20x16">
+    <link rel="icon" href="images/favicon.jpg" type="image/gif" sizes="20x16">
     <script type="text/javascript" src="background.js"></script>
     <script type="text/javascript" src="requests.js"></script>
 
@@ -19,22 +19,22 @@
    <div class="header">
       <span>
         <a href="https://www.kenn-dein-limit.de/">
-          <img class="logo" src="logo5.0.jpg">
+          <img class="logo" title="Bewusst genießen!" src="images/logo5.0.jpg">
         </a>
         <div class="dropdown" id="dropdown">
-          <img class="original" id="originalBild" src="original.jpg" onmouseover="repeater=setInterval(getListenInfos(), 100);" onmouseout="clearInterval(repeater);">
+          <img class="original" id="originalBild" src="images/original.jpg" onmouseover="repeater=setInterval(getListenInfos(), 100);" onmouseout="clearInterval(repeater);">
           <div class="dropdown-content" id="dropdown-content">
             <!--Hier stehen immer alle Listen drinnen-->
           </div>
-          <img class="list" src="list.jpg">
+          <img class="list" src="images/list.jpg">
         </div>
       </span>
         <!-- Suchleiste, verbunden mit request.js-->
       <span class="">
         <form class="suchfeld" id="form">
           <input class="suche" type="text" id="add" autocomplete="off" placeholder=" Neue Liste hinzufügen..."></input>
-          <button class="addListeButton" type="button" id="addListeBtn" name="submit" onclick="createListe()">
-            <img class="addIcon" src="addIcon.png" width="38px" height="38px"></img>
+          <button class="addListeButton" title="Liste hinzufügen" type="button" id="addListeBtn" name="submit" onclick="createListe()">
+            <img class="addIcon" src="images/addIcon.png" width="38px" height="38px"></img>
           </button>
           <!--Input Feld mit der Enter Taste einreichen-->
           <script>
@@ -55,7 +55,7 @@
       </span>
    </div>
    <div class="content">
-      <audio class="audio" controls>
+      <audio class="playAudio" controls>
           <source  src="song.mp3" type="audio/mpeg">
       </audio>
       <div id="hintergrund">

@@ -16,7 +16,7 @@ html, body{
 
 .grid-bereiche{
   width: 100%;
-  min-width: 290px;
+  min-width: 320px;
   height: 100%;
   display: grid;
   grid-template-rows: 5em 1fr;
@@ -160,6 +160,7 @@ ul {
   margin-left: auto;
   margin-right: auto;
   margin-top: 6em;
+  padding-left: 0;
 }
 
 .listDiv {
@@ -244,7 +245,7 @@ ul {
 }
 
 .itemTextfeldListe {
-  font-size: 1.4em;
+  font-size: 1.1em;
   text-align: center;
   border: none;
   padding-top: 0.3em;
@@ -266,7 +267,7 @@ ul {
   display: inline-block;
   background-color: transparent;
   position: relative;
-  bottom: -0.3em;
+  bottom: -0.4em;
   height: 25px;
   filter: invert(1);
 }
@@ -279,7 +280,7 @@ ul {
   outline: none;
 }
 
-.audio {
+.playAudio {
   width: 1.2em;
   position: fixed;
   bottom: 0;
@@ -287,11 +288,11 @@ ul {
   z-index: 1;
 }
 
-.audio:hover {
+.playAudio:hover {
   width: 16em;
 }
 
-.audio:focus {
+.playAudio:focus {
   outline: none;
 }
 
@@ -328,20 +329,26 @@ ul {
   .checkboxListe {
     width: 1.3em;
     height: 1.3em;
-    bottom: -0.25em;
+    bottom: -0.4em;
   }
 
   .itemTextfeldListe {
-    font-size: 1em;
+    font-size: 0.8em;
+    width: 70%;
   }
 
   .hinzufuegenTextfeldListe {
     width: 40%;
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
 
   .ItemLoeschenKnopf {
-    bottom: -0.4em;
+    bottom: -0.3em;
+  }
+
+  .garbageIcon {
+    height: 1.4em;
+    width: 1.4em;
   }
 
   .suche {
@@ -371,4 +378,30 @@ ul {
     display: none;
   }
 
+}
+
+@media (max-width: 380px) {
+  .itemTextfeldListe {
+    width: 50%;
+    font-size: 0.6em;
+  }
+  
+  .checkboxListe {
+    width: 1em;
+    height: 1em;
+    bottom: -0.3em;
+  }
+
+  .ItemLoeschenKnopf {
+    bottom: -0.2em;
+  }
+
+  .garbageIcon {
+    width: 1em;
+    height: 1em;
+  }
+
+  .hinzufuegenTextfeldListe {
+    font-size: 0.5em;
+  }
 }

@@ -117,15 +117,15 @@ function buildListe(listId, listName, listItems){
       //abfragen, ob das Item abgecheckt sein muss oder nicht
       if(itemBought == true){
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
-        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="25px" height="25px"></button></li>';
+        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" title="Erledigt" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Item löschen" onclick="removeListenelement('
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" title="Löschen" src="images/delete.png" width="25px" height="25px"></button></li>';
         console.log(itemName);
       } else {
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
-        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="25px" height="25px"></button></li>';
+        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" title="Nicht erledigt" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Item löschen" onclick="removeListenelement('
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" title="Löschen" src="images/delete.png" width="25px" height="25px"></button></li>';
       }
 
     }
@@ -142,7 +142,7 @@ function buildListe(listId, listName, listItems){
 
     //Endstück den gesamten String anhängen
     elementeInUl += '</fieldset></form><form class="formZweiListe" id="formZweiListe"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Neues Item hinzufügen..." id="' +
-    eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon2" src="addIcon.png" width="38px" height="38px"></img></button></form></div>';
+    eingabeEid + '"></input><button class="addButton" title="Item hinzufügen" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon2" src="images/addIcon.png" width="38px" height="38px"></img></button></form></div>';
 
     //inner HTML von ul
     ulList.innerHTML = elementeInUl;
@@ -230,7 +230,7 @@ function buildListenDropdown(listenInfos){
   //Für jede vorhandene Liste wird mit dessen Daten ein HTML Konstrukt gebaut, welches im Dropdown angezeigt wird.
   for (let i = 0; i < listenInfos.length; i++){
 
-    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenInfos[i]._id + "'" +')">'+ listenInfos[i].name +'<button class="ListeLoeschenKnopf" onclick="deleteListe('+"'"+listenInfos[i]._id+"'"+')"><img class="loeschenBild" src="delete.png" width="18px" height="18px"></img></button></a>';
+    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenInfos[i]._id + "'" +')">'+ listenInfos[i].name +'<button class="ListeLoeschenKnopf" title="Liste löschen" onclick="deleteListe('+"'"+listenInfos[i]._id+"'"+')"><img class="loeschenBild" src="images/delete.png" width="18px" height="18px"></img></button></a>';
   }
 
   //HTML aller Listen zusammenfügen
@@ -299,7 +299,7 @@ function createListe(){
 }
 
 
-//Audiofeld Funktion
+//*Audiofeld Funktion
 function myTimer() {
   if (document.getElementById("playAudio") != null) {
     document.getElementById("playAudio").play();
@@ -319,3 +319,4 @@ if (myAudio.duration > 0 && !myAudio.paused) {
 
 }
 }
+
