@@ -117,9 +117,9 @@ function buildListe(listId, listName, listItems){
       //abfragen, ob das Item abgecheckt sein muss oder nicht
       if(itemBought == true){
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
-        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="25px" height="25px"></button></li>';
+        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" title="Erledigt" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')" checked></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Item löschen" onclick="removeListenelement('
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" title="Löschen" src="images/delete.png" width="25px" height="25px"></button></li>';
       } else {
         stringsToInsert[i] =
         '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" title="Nicht erledigt" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
@@ -216,30 +216,20 @@ function getListenInfos(){
         //Dropdown Menü mit empfangenen Daten bauen
         buildListenDropdown(listenInfos);
     }
-  };
+    };
 
-  xhttp.send();
-
+    xhttp.send();
 }
 
-//Dropdown wird befüllt - durch getListenInfos() ausgelöst
 function buildListenDropdown(listenInfos){
 
   var kompletterString = '';
   var einzufuegendesHtml = [];
 
-  //Wenn Server down oder keine Listen da
-  if (listenInfos.length == 0) {
-    einzufuegendesHtml[i] = '<a class="aListenName">Keine Listen vorhanden.</a>';
-  }
-
   //Für jede vorhandene Liste wird mit dessen Daten ein HTML Konstrukt gebaut, welches im Dropdown angezeigt wird.
   for (let i = 0; i < listenInfos.length; i++){
 
-    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenInfos[i]._id + "'" +')">'
-                            + listenInfos[i].name
-                            +'<button class="ListeLoeschenKnopf" onclick="deleteListe('+"'"+listenInfos[i]._id+"'"+')">'
-                            +'<img class="loeschenBild" src="delete.png" width="18px" height="18px"></img></button></a>';
+    einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenInfos[i]._id + "'" +')">'+ listenInfos[i].name +'<button class="ListeLoeschenKnopf" title="Liste löschen" onclick="deleteListe('+"'"+listenInfos[i]._id+"'"+')"><img class="loeschenBild" src="images/delete.png" width="18px" height="18px"></img></button></a>';
   }
 
   //HTML aller Listen zusammenfügen
@@ -307,7 +297,8 @@ function createListe(){
   xhttp.send(JSON.stringify(jsonObject));
 }
 
-//Audiofeld Funktionen
+
+//*Audiofeld Funktion
 function myTimer() {
   if (document.getElementById("playAudio") != null) {
     document.getElementById("playAudio").play();
@@ -327,3 +318,4 @@ if (myAudio.duration > 0 && !myAudio.paused) {
 
 }
 }
+
