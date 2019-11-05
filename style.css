@@ -2,7 +2,7 @@ html, body{
   font-family: Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
-  /* Verhindern, dass der User Dinge markieren kann markieren kann */
+  /* Verhindern, dass der User Dinge markieren kann */
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -35,7 +35,6 @@ button{
 
 .logo {
   height: 5em;
-  transition: 3s;
 }
 
 .original {
@@ -383,7 +382,7 @@ ul {
     width: 50%;
     font-size: 0.6em;
   }
-  
+
   .checkboxListe {
     width: 1em;
     height: 1em;
