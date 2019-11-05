@@ -1,8 +1,8 @@
 Wem wurde die Seite gewidmet? 
-    Bier
-    Schokolade
-    Greta
-    HPE
+    5.0
+    Hofbräu
+    Dinkelacker
+    Becks
 
 Wie viele Zeilen Code hat das HTML?
     VORERST 74    
@@ -30,3 +30,21 @@ Ab wie viel Geld bekommt man eine 5.0er Dose?
     59
     29
     75
+
+Wie lautet der Statuscode, wenn das Backend ausnahmsweise nicht funktioniert?
+    503
+    500
+    404
+    403
+
+Welchen HTTP-Request braucht man beim Checken eines Listenelements?
+    PUT
+    GET
+    ADD
+    CHECK
+
+Seit jeher haben...
+Schäfer Hunde
+Dober Männer
+Riesen Schnauzer
+Cocker Spaniels

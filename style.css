@@ -89,7 +89,7 @@ button{
   display: block;
 }
 
-.ListeLoeschenKnopf {
+.listeLoeschenKnopf {
   border: none;
   display: inline;
   background-color: transparent;
@@ -97,13 +97,13 @@ button{
   float: right;
 }
 
-.ListeLoeschenKnopf:hover {
+.listeLoeschenKnopf:hover {
   background-color: rgb(255, 0, 0);
   filter: invert(0);
   border-radius: 2em;
 }
 
-.ListeLoeschenKnopf:focus {
+.listeLoeschenKnopf:focus {
   outline: none;
 }
 
@@ -173,7 +173,6 @@ ul {
 
 .listDiv:hover {
   background-color:rgba(255, 255, 255, 0.8);
-
 }
 
 .h1Liste {
@@ -260,7 +259,7 @@ ul {
   outline: none;
 }
 
-.ItemLoeschenKnopf {
+.itemLoeschenKnopf {
   border: none;
   display: inline-block;
   background-color: transparent;
@@ -270,11 +269,11 @@ ul {
   filter: invert(1);
 }
 
-.ItemLoeschenKnopf:hover {
+.itemLoeschenKnopf:hover {
   filter: invert(0);
 }
 
-.ItemLoeschenKnopf:focus{
+.itemLoeschenKnopf:focus{
   outline: none;
 }
 
@@ -326,12 +325,6 @@ ul {
   margin-left: 0.4em;
   margin-bottom: 0.3em;
   }
-}
-
-
-
-
-
 
 @media (max-width: 820px) {
 
@@ -363,10 +356,10 @@ ul {
 
 @media (max-width: 560px) {
 
-
   .h1Liste {
     font-size: 1.3em;
   }
+
   .checkboxListe {
     width: 1.3em;
     height: 1.3em;
@@ -383,7 +376,7 @@ ul {
     font-size: 0.6em;
   }
 
-  .ItemLoeschenKnopf {
+  .itemLoeschenKnopf {
     bottom: -0.3em;
   }
 
@@ -438,7 +431,7 @@ ul {
     bottom: -0.3em;
   }
 
-  .ItemLoeschenKnopf {
+  .itemLoeschenKnopf {
     bottom: -0.2em;
   }
 
