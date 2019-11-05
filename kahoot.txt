@@ -3,19 +3,25 @@ Wem wurde die Seite gewidmet?
     Schokolade
     Greta
     HPE
-    
+
+Wie viele Zeilen Code hat das HTML?
+    VORERST 74    
+
 Welche Hintergrundmusik läuft?
     Saufen morgens, mittags, abends
     Bierkapitän
     Geh mal Bier holen
     Viva Colonia
 
-Wie viele Zeilen Code hat das HTML?
-    VORERST 74
-
 Wie viele Zeilen Code hat das CSS?
     VORERST 385
 
+Auf welche Seite wird man weitergeleitet, wenn man auf das Logo klickt?
+    kenndeinlimit
+    5.0 Website
+    Bierkönig
+    DHBW Stuttgart
+    
 Wie viele Zeilen Code hat das JS?
     Vorerst 300
 
@@ -24,4 +30,3 @@ Ab wie viel Geld bekommt man eine 5.0er Dose?
     59
     29
     75
-

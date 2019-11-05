@@ -122,9 +122,9 @@ function buildListe(listId, listName, listItems){
         + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="25px" height="25px"></button></li>';
       } else {
         stringsToInsert[i] =
-        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
-        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Löschen" onclick="removeListenelement('
-        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" src="delete.png" width="25px" height="25px"></button></li>';
+        '<li class="itemListe" id="' + itemId + '"><input class="checkboxListe" title="Nicht erledigt" type="checkbox" id="'+ testIdCheckbox +'" onclick="checkListenelement('
+        + "'" + ulList.id + "','" + itemId + "','" + testIdCheckbox + "'" +')"></input><input class="itemTextfeldListe" type="text" value=' + '"' + itemName + '"'+ ' readonly></input><button class="ItemLoeschenKnopf" type="button" value="Item löschen" onclick="removeListenelement('
+        + "'" + ulList.id + "','" + itemId + "'" + ')"><img class="garbageIcon" title="Löschen" src="images/delete.png" width="25px" height="25px"></button></li>';
       }
 
     }
@@ -141,7 +141,7 @@ function buildListe(listId, listName, listItems){
 
     //Endstück den gesamten String anhängen
     elementeInUl += '</fieldset></form><form class="formZweiListe" id="formZweiListe"><input class="hinzufuegenTextfeldListe" type="text" name="Element hinzufügen" autocomplete="off" placeholder="Neues Item hinzufügen..." id="' +
-    eingabeEid + '"></input><button class="addButton" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon2" src="addIcon.png" width="38px" height="38px"></img></button></form></div>';
+    eingabeEid + '"></input><button class="addButton" title="Item hinzufügen" id="addItemBtn" type="button" name="submit" onclick="addListenelement(' + "'" + listId + "'" + ')"><img class="addIcon2" src="images/addIcon.png" width="38px" height="38px"></img></button></form></div>';
 
     //inner HTML von ul
     ulList.innerHTML = elementeInUl;
