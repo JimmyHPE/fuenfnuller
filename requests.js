@@ -244,7 +244,6 @@ function buildListenDropdown(listenInfos){
     einzufuegendesHtml[i] = '<a class="aListenName" onclick="getListeAktuell('+ "'" + listenInfos[i]._id + "'" +')">'
                             + listenInfos[i].name +'<button class="listeLoeschenKnopf" title="Liste löschen" onclick="deleteListe('+
                             "'" + listenInfos[i]._id + "'" + ')"><img class="loeschenBild" src="images/delete.png" width="18px" height="18px"></img></button></a>';
-
   }
 
   //HTML aller Listen zusammenfügen
